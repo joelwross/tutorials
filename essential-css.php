@@ -243,7 +243,12 @@ nav {
 }</code></pre>
 <p>Once you set <code>position: fixed</code>, you must tell the browser where the element should be fixed and how wide or tall it should be. Here we use <code>top</code> and <code>left</code> to anchor the element to the top-left corner of the browser window, and set the <code>width</code> property to <code>100%</code> to make it stretch across the entire window width. You can instead use <code>right</code> and <code>bottom</code> and <code>height</code> to anchor the element to any side of the browser window.</p>
 <p><code>position: fixed</code> fixes the element with respect to the entire browser window, but we can also position an element absolutely with respect to another containing element. For example, say we wanted to place an image in the upper-left corner of another image—like this:</p>
-<p><img src="img/new-bunny.png" alt="bunny with new icon in upper-right corner" /></p>
+
+<div style="width:300px;position:relative;">
+    <img src="img/bunny.jpg" alt="cute bunny" style="width:100%;">
+    <img src="img/new.png" alt="new badge" style="position:absolute;top:0;right:0;">
+</div>
+
 <p>This is achieved through a particular set of HTML elements, style classes, and CSS properties:</p>
 <pre><code class="language-html">&lt;!-- html page --&gt;
 &lt;div class="image-container"&gt;
