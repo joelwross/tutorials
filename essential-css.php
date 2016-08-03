@@ -150,7 +150,7 @@ input:focus {
 <h3>Measurement Units</h3>
 <p>Before we discuss the other core concepts, we need to take a slight digression into CSS units. Many CSS properties that affect the size of things can be specified in <a href="http://www.w3schools.com/cssref/css_units.asp">one or more units</a>. CSS supports several absolute units, as well as several relative units.</p>
 <p>The absolute units are as follows:</p>
-<table>
+<table class="table">
 <thead>
 <tr>
 <th>Unit</th>
@@ -181,7 +181,7 @@ input:focus {
 </tbody>
 </table>
 <p>In addition to these absolute units, you can also use these relative units:</p>
-<table>
+<table class="table">
 <thead>
 <tr>
 <th>Unit</th>
