@@ -3,8 +3,8 @@ $title = 'Tutorials';
 include 'header.php';
 
 $tutorials = [
-    "Essential HTML" => "essential-html.php",
-    "Essential CSS" => "essential-css.php",
+    "Essential HTML" => "essential-html/",
+    "Essential CSS" => "essential-css/",
 ];
 
 echo '<ul>';

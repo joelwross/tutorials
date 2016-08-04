@@ -1,9 +1,9 @@
 <?php 
 $title = 'Tutorial Title';
 $subtitle = 'Optional Tutorial Subtitle';
-include 'header.php';
+include '../header.php';
 ?>
 
 <?php 
-include 'footer.php'; 
+include '../footer.php'; 
 ?>

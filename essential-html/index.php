@@ -1,7 +1,7 @@
 <?php 
 $title = 'Essential HTML';
 $subtitle = 'What you need to know to get started';
-include 'header.php';
+include '../header.php';
 ?>
 
 <p><abbr title="HyperText Markup Language">HTML</abbr> is an acronym that stands for HyperText Markup Language. This is the primary language we use to write web pages. It's called a &quot;markup&quot; language because it marks-up otherwise plain text with additional information about the document's structure (headings, paragraphs, headers, footers, asides, etc.). And the &quot;HyperText&quot; part just means that it's a markup language for documents that link to each other.</p>
@@ -251,5 +251,5 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 <p>They removed this when they switched to their current site, probably because they realized that most people now browse the web on their phones. Although the comment was cool, it did slow down the data transfer and consume precious mobile network bandwidth. But you can still see this if you use the <a href="https://web.archive.org/web/20130112212418/http://www.washington.edu/">Wayback Machine</a>, a site that snapshots web pages over time, allowing you to see what sites looked like several years ago. Follow that link, and the <a href="http://www.computerhope.com/issues/ch000746.htm">view the source</a> of the page to see it!</p>
 
 <?php 
-include 'footer.php'; 
+include '../footer.php'; 
 ?>

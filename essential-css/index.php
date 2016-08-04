@@ -1,7 +1,7 @@
 <?php 
 $title = 'Essential CSS';
 $subtitle = 'Adding some style to your pages';
-include 'header.php';
+include '../header.php';
 ?>
 
 <p>CSS (Cascading Style Sheets) is a declarative language that we use to alter the appearance of our HTML pages. A CSS file (known as a &quot;stylesheet&quot;) consists of a set of formatting rules. The browser interprets and applies these rules when it renders your web page.</p>
@@ -225,7 +225,7 @@ input:focus {
     float: right;
 }</code></pre>
 <p>This removes elements with the style class <code>.floated-image</code> from the normal page flow, shoves them to the right of their containing elements, and allows the rest of the content below them to &quot;float&quot; up around them. It looks like this:</p>
-<p><img src="img/bunny.jpg" style="width:300px;float:right;">This text is floating upward and wrapping around the image on the right. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptates consequuntur dicta sed repellendus veniam enim beatae unde. Asperiores iure voluptatem tempora possimus culpa totam odio vel ipsa odit rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam, quisquam impedit consectetur voluptatum perferendis sit nobis ab repudiandae illo sequi rerum vitae molestias quas vero ut corrupti iusto error? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias magnam qui animi. Mollitia iste, temporibus distinctio dolore, nemo tempora aspernatur quos dolor laudantium nam architecto incidunt soluta minus neque exercitationem.</p>
+<p><img src="img/bunny.jpg" style="width:300px;max-width:50%;float:right;">This text is floating upward and wrapping around the image on the right. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptates consequuntur dicta sed repellendus veniam enim beatae unde. Asperiores iure voluptatem tempora possimus culpa totam odio vel ipsa odit rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam, quisquam impedit consectetur voluptatum perferendis sit nobis ab repudiandae illo sequi rerum vitae molestias quas vero ut corrupti iusto error? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias magnam qui animi. Mollitia iste, temporibus distinctio dolore, nemo tempora aspernatur quos dolor laudantium nam architecto incidunt soluta minus neque exercitationem.</p>
 <p style="clear:both;">You can float images to the right or left. The content below will continue to float upwards until one of those later elements &quot;clears&quot; the float (such as this element). You can clear the float using the CSS <code>clear</code> property.</p>
 <pre><code class="language-css">.clear-float {
     clear: both;
@@ -244,7 +244,7 @@ nav {
 <p>Once you set <code>position: fixed</code>, you must tell the browser where the element should be fixed and how wide or tall it should be. Here we use <code>top</code> and <code>left</code> to anchor the element to the top-left corner of the browser window, and set the <code>width</code> property to <code>100%</code> to make it stretch across the entire window width. You can instead use <code>right</code> and <code>bottom</code> and <code>height</code> to anchor the element to any side of the browser window.</p>
 <p><code>position: fixed</code> fixes the element with respect to the entire browser window, but we can also position an element absolutely with respect to another containing element. For example, say we wanted to place an image in the upper-left corner of another image—like this:</p>
 
-<div style="width:300px;position:relative;">
+<div style="width:300px;max-width:50%;position:relative;">
     <img src="img/bunny.jpg" alt="cute bunny" style="width:100%;">
     <img src="img/new.png" alt="new badge" style="position:absolute;top:0;right:0;">
 </div>
@@ -307,5 +307,5 @@ nav {
 </ul>
 
 <?php 
-include 'footer.php'; 
+include '../footer.php'; 
 ?>
