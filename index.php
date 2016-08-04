@@ -2,6 +2,7 @@
 $tutorials = [
     "Essential HTML" => "essential-html/",
     "Essential CSS" => "essential-css/",
+    "Essential Git" => "essential-git/",
 ];
 ?>
 <!DOCTYPE html>

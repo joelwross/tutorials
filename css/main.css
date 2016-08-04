@@ -15,3 +15,17 @@ svg {
     height: 1em;
     fill: #333;
 }
+
+.term {
+    font-weight: bold;
+}
+
+.replace-token {
+    font-style: italic;
+    background-color: #FFFFAA;
+}
+
+.screenshot {
+    border: 1px dotted #DDD;
+    padding: 5px;
+}
