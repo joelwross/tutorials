@@ -22,7 +22,7 @@ include '../header.php';
     <li>For text files (which nearly all your web development files will be), git pays attention to changes at the line level, and not just the file level. That means it can automatically merge together different changes made to different parts of the same file.</li>
 </ol>
 
-<p>Like Dropbox and Google Docs, git can show you all previous versions of a file and can quickly rollback to one of those previous versions. This is often helpful in web development, especially if you embark on making a massive set of changes, only to discover part way through that those changes were a bad idea (I speak from experience here &#x1F631 ).</p>
+<p>Like Dropbox and Google Docs, git can show you all previous versions of a file and can quickly rollback to one of those previous versions. This is often helpful in web development, especially if you embark on making a massive set of changes, only to discover part way through that those changes were a bad idea (I speak from experience here &#x1F631; ).</p>
 
 <p>But where git really comes in handy is in team development. Almost all professional web development work is done in teams, with involves multiple people working on the same set of files at the same time. Git helps the team coordinate all these changes, and provides a record so that anyone can see how a given file ended up the way it did.</p>
 
@@ -147,7 +147,7 @@ $ git status
 
 <p>If you are on a lab machine, or if you just installed git and haven't configured it yet, you now need to tell git who you are so that you can add and commit changes to a repository. You only need to do this once on your own machine, but since our lab machines reset each time you logout, you must do this each time on a lab machine.</p>
 
-</p>Enter these commands in your terminal/command window, replacing <span class="replace-token">your-full-name</span> with your full name and <span class="replace-token">your-email-address</span> with the email address you used when you signed up for GitHub:</p>
+<p>Enter these commands in your terminal/command window, replacing <span class="replace-token">your-full-name</span> with your full name and <span class="replace-token">your-email-address</span> with the email address you used when you signed up for GitHub:</p>
 
 <pre><code class="language-bash">
 $ git config --global user.name "your-full-name"
