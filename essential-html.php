@@ -176,7 +176,7 @@ include 'header.php';
 
 <p>Pretty simple, eh? That's really all you need to get going. You can use this page you just built as your default template for new pages, as it contains all the core elements every page should have.</p>
 
-<p>Continue learning and playing with HTML by adding a few other elements to your page. See the <a href="http://www.w3schools.com/tags/ref_byfunc.asp">HTML Element Reference</a> for a list of possible elements and their meanings. For example, try adding the following:</p>
+<p>Continue learning and playing with HTML by adding a few other elements to your page. See the <a href="http://www.w3schools.com/tags/ref_byfunc.asp">HTML Element Reference</a> for a list of possible elements and their meanings. For example, try adding the following to your page:</p>
 
 <ul>
     <li>A <a href="http://www.w3schools.com/tags/tag_a.asp">hyperlink</a> that takes you to another page.</li>
@@ -184,6 +184,8 @@ include 'header.php';
     <li>Some <a href="http://www.w3schools.com/tags/tag_sup.asp">superscript</a> text and some <a href="http://www.w3schools.com/tags/tag_sub.asp">subscript</a> text.</li>
     <li>A less than symbol that shows up as a <a href="http://www.w3schools.com/html/html_entities.asp">literal less-than symbol</a> rather than being interpreted as the start of an element.</li>
 </ul>
+
+<p class="alert alert-warning">Another way to experiment is to use CodePen, which is a site that lets you edit HTML, CSS, and JavaScript in your browser and see the results immediately. Give it a try using my <a href="https://codepen.io/drstearns/pen/LkJomO">Essential HTML Practice pen</a>.</p> 
 
 <h2>Comments</h2>
 
