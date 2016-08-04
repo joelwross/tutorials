@@ -11,6 +11,10 @@ footer {
     padding-bottom: 2em;
 }
 
+li {
+    margin-bottom: 0.5em;
+}
+
 svg {
     height: 1em;
     fill: #333;

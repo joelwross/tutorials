@@ -1,8 +1,9 @@
 <?php
 $tutorials = [
-    "Essential HTML" => "essential-html/",
-    "Essential CSS" => "essential-css/",
-    "Essential Git" => "essential-git/",
+    "Essential HTML" => "essential-html",
+    "Essential CSS" => "essential-css",
+    "Essential Git" => "essential-git",
+    "Responsive CSS" => "responsive-css",
 ];
 ?>
 <!DOCTYPE html>
