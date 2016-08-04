@@ -103,7 +103,7 @@ body {
     padding: 0 0.25em; /* a little padding between columns */
 }</code></pre>
 
-<p data-height="300" data-theme-id="19831" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by David Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="dark" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>By default, browsers will apply sizes like <code>100%</code> to just the content within a box and not the padding or borders on the box. But in our case, we want the column size to also include the padding we put on the left and right; otherwise, it might wrap to the next line. To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
@@ -137,7 +137,7 @@ body {
 }
 </code></pre>
 
-<p data-height="500" data-theme-id="19831" data-slug-hash="GqYAVp" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/GqYAVp/">Flexbox Responsive</a> by David Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="550" data-theme-id="dark" data-slug-hash="GqYAVp" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/GqYAVp/">Flexbox Responsive</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>The <code>flex-basis</code> property controls how much width each column takes up by default, so setting it to 100% causes the column to stretch to the entire width of the container. Because we set <code>flex-wrap</code> to <code>wrap</code>, the following columns wrap to the next line, creating a stacked one-column layout.</p>
@@ -177,7 +177,7 @@ body {
 }
 </code></pre>
 
-<p data-height="600" data-theme-id="19831" data-slug-hash="qNJAEG" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/qNJAEG/">Flexbox Responsive 2</a> by David Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="656" data-theme-id="dark" data-slug-hash="qNJAEG" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/qNJAEG/">Flexbox Responsive 2</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>When we adjust <code>flex-basis</code> to <code>50%</code>, the columns now take up half the row width, allowing two columns to sit side-by-side on each line on screens 490px to 780px. Adjusting the property to <code>auto</code> causes the browser to give equal width to each column so that they all end up side-by-side on the same line. We also turn off wrapping to ensure that all the columns remain on one line.</p>
