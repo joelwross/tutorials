@@ -40,8 +40,8 @@ body {
     font-size: 16px;                   /* default font size is 16 pixels */
 }
 
-/* rules that apply only to screens wider than 768 pixels */
-@media(min-width: 768px) {
+/* rules that apply only to screens 768 pixels and wider */
+@media (min-width: 768px) {
     body {
         background-image: url(...);   /* use background image on larger screens */
         font-size: 18px;              /* increase font size to 18 pixels on larger screens */
@@ -90,6 +90,10 @@ body {
 &lt;/div&gt;</code></pre>
 
 <pre><code class="language-css">
+* {
+    box-sizing: border-box; /* include padding and border is size calcs */
+}
+
 .container {
     display: flex; /* start a flexbox */
 }
@@ -99,14 +103,18 @@ body {
     padding: 0 0.25em; /* a little padding between columns */
 }</code></pre>
 
-<p class="alert alert-warning">Following is a CodePen containing the example above. You can edit it over on CodePen to play around with the various properties and see the results immediately.</p>
-
 <p data-height="300" data-theme-id="19831" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by David Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>By default, browsers will apply sizes like <code>100%</code> to just the content within a box and not the padding or borders on the box. But in our case, we want the column size to also include the padding we put on the left and right; otherwise, it might wrap to the next line. To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
 
 <p>This will create a four column layout on all screens, but we can make this responsive by adding some <code>@media</code> rule blocks, and adjusting a few properties. Let's start by making the columns stacked on top of each other on small phone screens, but side-by-side on wider screens:</p>
 
 <pre><code class="language-css">
+* {
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap; /* wrap columns to next line if needed */
@@ -137,6 +145,10 @@ body {
 <p>We can then extend this to support a two-by-two layout on medium screens:</p>
 
 <pre><code class="language-css">
+* {
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap; /* wrap columns to next line if needed */
