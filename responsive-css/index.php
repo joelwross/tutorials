@@ -96,6 +96,7 @@ body {
 
 .column {
     flex-grow: 1;  /* all columns equal size */
+    padding: 0 0.25em; /* a little padding between columns */
 }</code></pre>
 
 <p class="alert alert-warning">Following is a CodePen containing the example above. You can edit it over on CodePen to play around with the various properties and see the results immediately.</p>
@@ -114,6 +115,7 @@ body {
 .column {
     flex-grow: 1;
     flex-basis: 100%; /* columns take up whole line */
+    padding: 0 0.25em;
 }
 
 /* rules for screens 780px and wider */
@@ -167,6 +169,8 @@ body {
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>When we adjust <code>flex-basis</code> to <code>50%</code>, the columns now take up half the row width, allowing two columns to sit side-by-side on each line on screens 490px to 780px. Adjusting the property to <code>auto</code> causes the browser to give equal width to each column so that they all end up side-by-side on the same line. We also turn off wrapping to ensure that all the columns remain on one line.</p>
+
+<h2>Keep Learning</h2>
 
 <p>This is just a taste of what flexbox can do. See Chris Coyier's <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> for more details.</p>
 
