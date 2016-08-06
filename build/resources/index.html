@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Helpful Resources</title>
+    <link rel="icon" href="../img/favicon.png">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../lib/prism.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script defer src="../lib/prism.js"></script> 
+</head>
+<body>
+    <main class="container">
+<header class="page-header">
+    <h1>Helpful Resources</h1>
+    <p class="lead">Everything you need in your web development toolbox</p>
+</header>
+
+<p>One of the nice things about web development is that most of the tools and resources you need are freely available, but it's often difficult to know which ones to trust, and which will really be accurate and helpful. Following are the tools and resources I use regularly.</p>
+
+<h2>Core Tools</h2>
+
+<p>Our lab machines already have all the software you'll need installed, but if you want to do web development on your own computer, you'll need the following core tools:</p>        
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.108 533.108"><g><path d="M231.627 289.386C250.933 276.314 278.78 253.17 312 222.69c-5.997-3.625-12.36-8.24-18.357-14.13-6.58-6.19-11.885-12.748-15.833-19.025-28.797 34.168-50.41 62.77-62.77 82.616-3.992 0-38.634.627-62.772 25.8-25.605 26.79-24.16 91.72-24.16 91.72s16.416-25.455 47.112-32.66c35.57-8.218 51.64-30.716 56.407-67.624zM196.057 451.253l2.437 2.265 88.592-46.032-47.133-45.298"/><path d="M435.794 157.89l-27.18 28.345V127.52c5.415-5.48 8.802-8.91 8.802-8.91s84.06-84.946 60.42-101.19c-23.685-16.2-101.06 62.384-101.06 62.384s-13.308 14.323-30.435 32.96H0v405.12h408.615v-237.06l74.354-77.59-47.176-45.343zm-60.83 326.28H33.673V146.415h281.995c-12.705 14.043-24.72 27.524-32.874 37.166 3.97 6.43 9.448 13.138 16.092 19.566 6.148 5.846 12.597 10.742 18.702 14.3 14.172-13.222 37.08-35.85 57.378-56.126v60.053L249.595 352.18l47.176 45.32 78.195-81.56v168.23z"/><path d="M530.49 137.938l-31.558-30.134c-4.228-4.163-12.554-2.696-18.163 3.257l-35.614 37.06 47.218 45.363 35.55-37.188c5.78-5.932 6.86-14.28 2.566-18.357z"/></g></svg>
+            Web-Optimized Editor
+        </h3>
+        <p>You can edit web files in any text editor, but any one of the following will make your life much easier (you only need one).</p>
+        <dl>
+            <dt><a href="http://www.sublimetext.com/3">Sublime Text</a></dt>
+            <dd>Many web developers use this as their standard editor. It's very fast and approachable, but it can be customized extensively via plug-in packages. It can be used perpetually without a license, but it will show you a nag screen every once and while. As far as I know, they don't offer free student licenses.</dd>
+
+            <dt><a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a></dt>
+            <dd>A new, cross-platform, and completely free code editor from Microsoft! It comes with lots of handy features, and can be customized through a <a href="https://marketplace.visualstudio.com/VSCode">growing library of extensions</a>. This is actually a web application, meaning that it's written using HTML, CSS, and JavaScript. Because it's not written in a compiled language, it won't be quite as snappy as Sublime, but it's surprisingly quick and functional. I use both this and Sublime depending on what I am doing.</dd>
+
+            <dt><a href="http://brackets.io/">Brackets</a></dt>
+            <dd>This is another popular editor from Adobe that is specifically targeted at client-side web development. It has some intriguing features that are not yet in either Sublime or Visual Studio Code.</dd>
+        </dl>        
+    </div>
+
+    <div class="col-md-6">
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412.996 412.996"><path d="M392.996 28.338H20c-11.047 0-20 8.954-20 20v234c0 11.046 8.953 20 20 20h139.498v45.32h-54.283c-10.2 0-18.5 8.3-18.5 18.5s8.3 18.5 18.5 18.5H307.78c10.202 0 18.5-8.3 18.5-18.5s-8.298-18.5-18.5-18.5H253.5v-45.32h139.498c11.047 0 20-8.954 20-20v-234c0-11.046-8.953-20-20-20zm-10 244H30v-214h352.996v214z"/><path d="M94.59 176.637l63.085 29.336c1.63.755 3.367 1.138 5.162 1.138 2.338 0 4.616-.663 6.597-1.923 3.548-2.267 5.666-6.13 5.666-10.335v-.322c0-4.75-2.785-9.115-7.096-11.12l-39.455-18.33 39.455-18.333c4.31-2.004 7.095-6.37 7.095-11.118v-.32c0-4.21-2.12-8.074-5.665-10.334-1.962-1.254-4.247-1.916-6.606-1.916-1.78 0-3.564.39-5.16 1.133l-63.08 29.332c-4.308 2.005-7.09 6.37-7.09 11.117v.878c-.002 4.742 2.78 9.105 7.09 11.117zM175.662 236.39c2.3 3.148 6.002 5.028 9.9 5.028h.316c5.352 0 10.042-3.426 11.672-8.516l41.557-128.76c1.192-3.717.53-7.818-1.77-10.974-2.302-3.15-6.003-5.03-9.902-5.03h-.314c-5.353 0-10.047 3.426-11.678 8.516l-41.562 128.77c-1.182 3.72-.516 7.818 1.782 10.965zM237.896 135.628c0 4.746 2.782 9.11 7.095 11.122l39.456 18.33-39.455 18.33c-4.31 2.004-7.095 6.368-7.095 11.12v.32c0 4.206 2.117 8.07 5.67 10.337 1.973 1.258 4.253 1.923 6.594 1.923 1.79 0 3.526-.383 5.168-1.142l63.08-29.335c4.308-2.01 7.09-6.372 7.09-11.115v-.878c0-4.748-2.783-9.112-7.093-11.117l-63.08-29.334c-1.59-.74-3.373-1.132-5.152-1.132-2.358 0-4.644.662-6.604 1.912-3.555 2.264-5.674 6.127-5.674 10.338v.32z"/></svg>
+            Browser with Developer Tools
+        </h3>
+        <p>Most any recent browser will have some sort of developer tools built-in, but I would recommend using one of these:</p>
+        <dl>
+            <dt><a href="http://www.google.com/chrome/">Google Chrome</a></dt>
+            <dd>Chrome features a great set of <a href="https://developer.chrome.com/devtools">developer tools</a>, and it's very fast.</dd>
+
+            <dt><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></dt>
+            <dd>Firefox now has it's own <a href="https://developer.mozilla.org/en-US/docs/Tools">built-in developer tools</a>, or you can use the classic <a href="http://getfirebug.com/">Firebug</a> add-in.</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.549 438.549"><path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8C295.736 15.166 259.057 5.365 219.27 5.365c-39.78 0-76.47 9.804-110.062 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.853 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.42-1.996 2.474-2.282 3.71-5.14 3.71-8.562 0-.57-.05-5.708-.144-15.417-.098-9.71-.144-18.18-.144-25.406l-6.567 1.136c-4.187.767-9.47 1.092-15.846 1-6.375-.09-12.992-.757-19.843-2-6.854-1.23-13.23-4.085-19.13-8.558-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.9-9.233-8.992-14.56-4.093-5.33-8.232-8.944-12.42-10.847l-1.998-1.43c-1.332-.952-2.568-2.1-3.71-3.43-1.143-1.33-1.998-2.663-2.57-3.997-.57-1.335-.097-2.43 1.428-3.29 1.525-.858 4.28-1.275 8.28-1.275l5.708.853c3.807.763 8.516 3.042 14.133 6.85 5.615 3.807 10.23 8.755 13.847 14.843 4.38 7.807 9.657 13.755 15.846 17.848 6.184 4.093 12.42 6.136 18.7 6.136 6.28 0 11.703-.476 16.273-1.423 4.565-.95 8.848-2.382 12.847-4.284 1.713-12.758 6.377-22.56 13.988-29.41-10.847-1.14-20.6-2.857-29.263-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.98-3.9-12.373-5.852-26.647-5.852-42.825 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.38-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.284 18.794 7.953 23.84 10.995 5.046 3.04 9.09 5.618 12.135 7.708 17.706-4.947 35.977-7.42 54.82-7.42s37.116 2.473 54.822 7.42l10.85-6.85c7.418-4.57 16.18-8.757 26.26-12.564 10.09-3.806 17.803-4.854 23.135-3.14 8.562 21.51 9.325 40.923 2.28 58.24 15.035 16.18 22.558 35.788 22.558 58.818 0 16.178-1.958 30.497-5.853 42.966-3.9 12.47-8.94 22.457-15.125 29.98-6.19 7.52-13.9 13.85-23.13 18.985-9.233 5.14-18.183 8.85-26.84 11.135-8.663 2.286-18.416 4.004-29.264 5.146 9.894 8.563 14.842 22.078 14.842 40.54v60.237c0 3.422 1.19 6.28 3.572 8.562 2.38 2.278 6.136 2.95 11.276 1.994 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.16 41.826-81.126 41.826-128.906-.01-39.77-9.818-76.454-29.414-110.05z"/></svg>
+            Git and GitHub Account
+        </h3>
+        <dl>
+            <dt><a href="https://git-scm.com/">git</a></dt>
+            <dd>Currently the most popular version control system. We will use this to track version of our files, back them up to GitHub, and deploy them to our web servers.</dd>
+
+            <dt><a href="https://github.com/">GitHub Account</a></dt>
+            <dd>Git is a decentralized version control system that doesn't strictly require a central server, but most teams prefer to use a cloud service to store the authoritative version of their code. GitHub is the most popular of those services, so create an account for yourself if you don't already have one.</dd>
+        </dl>
+    </div>
+</div>
+
+<h2>Books, Tutorials, References and Tools</h2>
+<p>The following resources will also be helpful as you design and build your web sites and applications.</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79.536 79.536"><path d="M2.045 23.346c0-5.79 4.694-10.478 10.493-10.478 5.78 0 10.463 4.69 10.463 10.478 0 5.792-4.683 10.473-10.462 10.473-5.8-.002-10.493-4.683-10.493-10.474zm46.393 9.804c-1.683-1.013-3.858-.487-4.883 1.188l-6.99 11.467-9.86-5.507c-4.432-2.73-6.594-4.026-13.176-4.026h-2.005C-1.243 37.764.973 47.992.973 47.992L2.52 79.535l22.474-.25-.885-31.295 11.98 5.687c.553.31 1.143.45 1.73.45 1.204 0 2.37-.606 3.042-1.704l8.772-14.39c1.01-1.675.487-3.86-1.196-4.883zm-28.38-1.087c-.78.668-1.63 1.238-2.557 1.688v1.653c.928.11 1.777.26 2.557.474v-3.814zM78.71 0H17.5v12.942c.928.445 1.777 1.018 2.557 1.686V2.55h56.11v38.383H49.143l-1.554 2.552h31.12V0zM36.702 43.485l1.563-2.552h-8.17l4.563 2.552h2.044zm21.62-25.87l-1.23-.706-8.565 14.936 1.237.712 8.56-14.942z"/></svg>
+            Tutorials and Slides
+        </h3>
+        <dl>
+            <dt><a href="essential-html.php">Essential HTML Tutorial</a></dt>
+            <dd>What you need to know to get started with HTML</dd>
+            
+            <dt><a href="essential-css.php">Essential CSS Tutorial</a></dt>
+            <dd>What you need to know to get started with CSS</dd>
+            
+            <dt><a href="essential-git.php">Essential Git Tutorial</a></dt>
+            <dd>What you need to know to get started with git</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105.25 105.25"><path d="M71.71 30.724H52.626V27.93H71.71v2.794zm0 7.88H52.626V41.4H71.71v-2.795zM33.54 52.18h38.17v-2.806H33.54v2.806zm0 10.668h38.17v-2.795H33.54v2.795zm0 10.787h38.17v-2.802H33.54v2.802zm0-31.415l5.357-15.142h3.672l5.357 15.142H44.57l-1.027-3.078h-5.74l-.995 3.078h-1.625-1.644zm5.138-5.684h4.02l-2.012-6.07-2.008 6.07zM86.263 3.22v98.81c0 1.774-1.44 3.22-3.217 3.22h-60.84c-1.78 0-3.217-1.446-3.217-3.22V3.22C18.987 1.443 20.425 0 22.204 0h60.84c1.78-.004 3.218 1.442 3.218 3.22zM43.72 5.8c0 .434.34.788.75.788h16.32c.407 0 .747-.354.747-.787 0-.436-.34-.79-.748-.79H44.47c-.416 0-.75.35-.75.79zM57.014 97.64c0-2.09-1.7-3.797-3.79-3.797-2.094 0-3.794 1.708-3.794 3.798 0 2.097 1.7 3.797 3.793 3.797 2.09 0 3.79-1.7 3.79-3.797zm22.815-86.87h-44.14V21.96l-3.483-2.924-3.482 2.924V10.77h-3.3v78.64h35.28v12.43l12.43-12.43h6.69l.005-78.64z"/></svg>
+            Free Books
+        </h3>
+        <dl>
+            <dt><a href="http://diveintohtml5.info/">Dive Into HTML 5</a></dt>
+            <dd>An introduction to the new features in HTML 5, written for those who already know the basics of HTML.</dd>            
+        
+            <dt><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></dt>
+            <dd>A nice introduction to programming in JavaScript. It covers the language itself, using JavaScipt in the browser, and one chapter on building a web server in JavaScript using Node.js.</dd>
+
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">A Re-Introduction to JavaScript</a></dt>
+            <dd>A focused tutorial on JavaScript for those who are already comfortable with basic programming concepts.</dd>
+
+            <dt><a href="http://jsforcats.com/">JavaScript for Cats</a></dt>
+            <dd>A gentler introduction to JavaScript for "Scaredy-Cats."</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335.08 335.079"><path d="M311.175 115.775c-1.355-10.186-1.546-27.73 7.915-33.62.17-.11.295-.265.443-.4 7.735-2.473 13.088-5.945 8.886-10.617l-114.103-34.38L29.56 62.445S8.403 65.47 10.293 98.34c1.026 17.89 6.637 26.675 11.544 31l-15.16 4.568c-4.21 4.672 1.143 8.145 8.88 10.615.146.138.27.293.442.4 9.454 5.897 9.272 23.44 7.912 33.627-33.967 9.645-21.774 12.788-21.774 12.788l7.45 1.803C4.35 197.878-.856 206.86.12 223.89c1.89 32.865 19.27 35.133 19.27 35.133L140.29 298.32l182.49-44.2s12.198-3.15-21.778-12.795c-1.366-10.172-1.556-27.712 7.92-33.623.175-.105.302-.264.443-.396 7.736-2.474 13.084-5.943 8.88-10.615l-7.93-2.394c5.29-3.19 13.235-11.527 14.48-33.183.86-14.896-3.027-23.62-7.525-28.756l15.678-3.794c0 .006 12.198-3.142-21.773-12.788zm-152.642-.42l30.688-6.308 103.71-21.312 15.45-3.178c-4.937 9.036-4.73 21.402-3.913 29.35.18 1.798.385 3.44.585 4.688L288.14 122.8l-130.897 32.563 1.29-40.01zM26.71 147.336l15.45 3.178 99.596 20.474 8.7 1.78 26.094 5.364 1.287 40.01-134.534-33.47-13.263-3.297c.195-1.25.4-2.89.588-4.693.812-7.942 1.023-20.31-3.918-29.347zm-6.002-50.58c-.187-8.743 1.37-15.066 4.52-18.28 2.004-2.052 4.37-2.48 5.99-2.48.858 0 1.475.12 1.517.12l79.607 25.953 39.717 12.95-1.304 40.288L39.334 124.07l-5.88-1.647c-.216-.06-.51-.103-.735-.113-.46-.033-11.476-1.047-12.012-25.553zm119.87 184.11L23.28 247.98c-.217-.063-.507-.105-.733-.116-.467-.03-11.488-1.044-12.02-25.544-.19-8.754 1.375-15.07 4.518-18.288 2.01-2.052 4.375-2.48 5.994-2.48.858 0 1.473.116 1.518.116 0 0 .005 0 0 0l119.316 38.908-1.295 40.29zm153.706-41.408c.185 1.803.39 3.442.59 4.692l-147.81 36.77 1.29-40.01 31.602-6.496 4.667 1.13 17.492-5.686 80.63-16.57 15.458-3.18c-4.942 9.036-4.737 21.407-3.92 29.35zm8.142-54.376c-.27.006-.538.042-.79.122l-11.15 3.12-106.147 29.765-1.3-40.288 34.827-11.36 84.327-27.5c.01-.005 4.436-.988 7.684 2.315 3.144 3.214 4.704 9.537 4.52 18.28-.55 24.498-11.57 25.516-11.972 25.547z"/></svg>
+            Books for Purchase
+        </h3>
+        <dl>
+            <dt><a href="http://amzn.com/1118008189"><cite>HTML &amp; CSS: Design and Build Websites</cite></a></dt>
+            <dd>A beautiful and informative book on HTML and CSS. It teaches you not only the syntax and basic mechanics, but also how to design effective web pages.</dd>
+
+            <dt><a href="http://amzn.com/0596805527"><cite>JavaScript: The Definitive Guide</cite></a></dt>
+            <dd>Affectionately known as "the Rhino book," this really is the definitive guide to the JavaScript language and the DOM. The recent editions also include a chapter on the jQuery library. If you want to be a serious web developer, you should read this book at some point.</dd>
+        </dl>
+        
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.803 791.803"><path d="M395.904 475.016l-236.203-72.7v121.42c0 56.133 105.788 101.644 236.275 101.644 130.48 0 236.285-45.51 236.285-101.644 0-.442-.145-.886-.154-1.318V402.316l-236.202 72.7z"/><path d="M0 318.734l84.383 30.185 7.19-15.402 31-2.635 4.42 4.6-26.6 6.307-3.877 11.475c-.007 0-60.087 125.604-51.263 187.05 0 0 37.502 22.37 74.988 0l9.963-168V358.33l55.8-12.587-3.94 9.705-41.605 13.53 19.242 6.873 236.203 72.7 236.2-72.7 159.7-57.115-395.9-152.313L0 318.734z"/></svg>
+            Deals for Students
+        </h3>
+        <dl>
+            <dt><a href="https://education.github.com/pack">GitHub Student Pack</a></dt>
+            <dd>A set of discounted or free services and products available to students, courtesy of GitHub.</dd>
+
+            <dt><a href="https://www.jetbrains.com/student/">JetBrains WebStorm Free Student License</a></dt>
+            <dd>Get a free student license key for any JetBrains IDE</dd>
+        </dl>
+    </div> <!-- column -->
+
+    <div class="col-md-4">
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 449.653 449.652"><path d="M78.35 70.45c0 6.905 5.597 12.5 12.5 12.5h239.534v310.522c0 6.902 5.598 12.5 12.5 12.5 6.903 0 12.5-5.598 12.5-12.5V70.452c0-6.905-5.597-12.5-12.5-12.5H90.85c-6.903 0-12.5 5.596-12.5 12.5z"/><path d="M402.042 0H84.557c-4.14 0-8.008 2.048-10.336 5.47L37.306 59.742c-1.41 2.073-2.164 4.522-2.164 7.03l-.03 342.278c0 .3.01.595.03.888v27.215c0 6.904 5.598 12.5 12.5 12.5h298.486c1.51 0 2.957-.27 4.297-.758 1.517-.426 2.95-1.136 4.223-2.108l54.992-42.067c3.093-2.364 4.905-6.035 4.905-9.928V12.5c0-6.904-5.597-12.5-12.5-12.5zm-12.5 388.615l-47.11 36.037H60.14v-15.6c0-.296-.01-.592-.03-.884l.03-337.546L91.172 25h298.37v363.615z"/><path d="M167.417 188.772c-.938-2.75-3.52-4.596-6.426-4.596H148.44c-2.91 0-5.492 1.85-6.43 4.605l-35.737 105.183c-.7 2.07-.36 4.364.91 6.137 1.27 1.775 3.334 2.836 5.52 2.836h7.71c2.938 0 5.528-1.873 6.448-4.66l10.096-30.575h34.874l10.402 30.63c.936 2.756 3.52 4.606 6.43 4.606h8.224c2.186 0 4.25-1.062 5.522-2.838 1.27-1.778 1.61-4.074.903-6.145l-35.893-105.18zm-25.21 60.888l9.468-27.97.038-.117c.866-2.733 1.724-5.61 2.59-8.686.815 2.874 1.728 5.868 2.79 8.98l9.454 27.792h-24.34zM259.342 213.926c-9.7 0-18.175 3.136-24.39 8.93v-32.173c0-3.744-3.046-6.79-6.79-6.79h-7.685c-1.813 0-3.52.706-4.8 1.99-1.283 1.28-1.99 2.986-1.99 4.8l.007 105.463c0 3.744 3.046 6.79 6.79 6.79h6.097c3.744 0 6.79-3.046 6.79-6.79 0-.086-.002-.174-.005-.26 6.055 5.896 14.04 8.877 23.814 8.877 10.154 0 20.045-4.268 27.135-11.71 8.047-8.445 12.3-20.436 12.3-34.66.096-13.98-4.29-26.148-12.347-34.26-6.63-6.677-15.252-10.207-24.926-10.207zm11.97 67.404c-3.343 3.406-7.69 5.062-13.292 5.062-5.318 0-9.387-1.563-12.437-4.778-7.46-7.868-6.817-22.962-6.812-23.09.007-.093.01-.202.012-.29.02-1.06.664-25.936 19.735-25.936 19.158 0 20.52 25.002 20.565 26.006.07 4.134-1.197 16.327-7.77 23.026z"/></svg>
+            Technical References
+        </h3>
+        <dl>
+            <dt><a href="http://www.w3schools.com/tags/ref_byfunc.asp">General HTML 5 Reference</a></dt>
+            <dd>A general reference for HTML 5 elements, organized by function. See also the <a href="http://www.w3schools.com/tags/default.asp">alphabetical reference.</a></dd>
+
+            <dt><a href="http://www.w3schools.com/tags/ref_standardattributes.asp">Global Attributes Reference</a></dt>
+            <dd>A general reference for the global HTML attributes, which may be used on any element in the body section of your document.</dd>
+
+            <dt><a href="http://www.w3schools.com/html/html_entities.asp">HTML Character Entities</a></dt>
+            <dd>A reference for all the various supported character entities. Use these to encode reserved characters and <a href="http://www.w3schools.com/html/html_symbols.asp">other symbols</a>.</dd>
+        </dl>
+
+        <h4>CSS</h4>
+        <dl>
+            <dt><a href="http://www.w3schools.com/cssref/css_selectors.asp">CSS Selectors Reference</a></dt>
+            <dd>A handy table showing all the various kinds of CSS selectors with examples and descriptions of what they select.</dd>
+
+            <dt><a href="http://www.w3schools.com/cssref/default.asp">CSS Properties Reference</a></dt>
+            <dd>A complete reference for all the various CSS properties, organized by function.</dd>
+
+            <dt><a href="http://www.w3schools.com/cssref/css_units.asp">CSS Units Reference</a></dt>
+            <dd>Short reference of the various unit measurements supported in CSS and their suffixes.</dd>
+        </dl>
+
+        <h4>JavaScript References</h4>
+        <dl>
+            <dt><a href="http://www.w3schools.com/jsref/">JavaScript and the DOM Reference</a></dt>
+            <dd>A general reference for the core JavaScript language and the Document Object Model (DOM).</dd>
+
+            <dt><a href="http://javascript.crockford.com/code.html">JavaScript Style Guide</a></dt>
+            <dd>A reasonable though highly-opinionated style guide for JavaScript code.</dd>
+        </dl>
+
+        <h4>Regular Expressions</h4>
+        <dl>
+            <dt><a href="https://regex101.com/#javascript">Regular Expressions 101</a></dt>
+            <dd>A really impressive interactive tool for building, testing, and explaining regular expressions.</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486.399 486.399"><path d="M367.1 280.795h118.026c.91-8.185 1.273-16.55 1.273-25.1 0-40.11-10.77-77.732-29.563-110.13 19.44-51.655 18.746-95.495-7.278-121.696C424.81-.77 358.413 3.23 283.353 36.47c-5.552-.42-11.158-.637-16.817-.637-103.024 0-189.463 70.897-213.354 166.425C85.5 160.88 119.5 130.88 164.92 109.034c-4.13 3.87-28.226 27.826-32.28 31.882C12.867 260.654-24.904 417.068 15.737 457.716c30.893 30.888 86.88 25.672 151.188-5.823 29.903 15.23 63.75 23.815 99.61 23.815 96.565 0 178.4-62.158 208.044-148.725H355.645c-16.366 30.19-48.373 50.74-85.107 50.74s-68.743-20.55-85.108-50.74c-7.275-13.638-11.457-29.276-11.457-45.828v-.36H367.1zm-192.95-58.012c2.728-48.555 43.1-87.292 92.384-87.292 49.282 0 89.655 38.737 92.382 87.293H174.15zM448.482 48.285c16.763 16.94 16.344 48.107 2.006 87.01-24.567-37.453-60.26-66.967-102.396-83.82 45.054-19.318 81.704-21.877 100.39-3.19zM46.742 450.008C25.35 428.61 31.797 383.7 59.354 329.592c17.154 48.136 50.578 88.545 93.668 114.577-47.714 21.66-86.768 25.336-106.282 5.838z"/></svg>
+            Browser Support
+        </h3>
+        <dl>
+            <dt><a href="http://caniuse.com/">Can I Use...</a></dt>
+            <dd>A site that tracks support for different HTML, CSS, and JavaScript features across all major browsers (including mobile versions)</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.42 310.42"><path d="M273.587 214.965c49.11-49.11 49.11-129.02 0-178.132-49.11-49.11-129.02-49.11-178.13 0C53.793 78.497 47.483 140.463 76.51 188.85c0 0 2.085 3.498-.73 6.312-16.066 16.064-64.264 64.263-64.264 64.263-12.79 12.79-15.836 30.675-4.493 42.02l1.953 1.95c11.343 11.346 29.23 8.302 42.02-4.49l64.127-64.127c2.95-2.95 6.448-.866 6.448-.866 48.388 29.026 110.353 22.717 152.017-18.947zM118.71 191.71c-36.287-36.288-36.286-95.332.002-131.62 36.288-36.287 95.332-36.288 131.62 0 36.287 36.287 36.287 95.332 0 131.62-36.29 36.286-95.332 36.286-131.62 0z"/><path d="M240.316 90.516c-4.475-4.473-8.93-6.74-13.243-6.74-3.363 0-6.442 1.373-9.153 4.084-.28.28-25.586 25.62-38.638 38.65-.77.77-1.22 1.388-2.148 1.39-.925 0-1.403-.643-2.22-1.454-7.962-7.925-22.404-22.426-22.573-22.595-2.62-2.62-5.564-3.95-8.75-3.95-4.19 0-8.522 2.294-13.24 7.01-3.623 3.623-5.79 6.978-6.625 10.255-1.087 4.26.146 8.318 3.565 11.736l33.19 33.19c5.797 5.798 12.257 7.016 16.654 7.016 6.488 0 11.814-2.172 16.28-6.64l49.56-49.56c6.27-6.267 5.302-14.43-2.658-22.39z"/></svg>
+            Validation Tools
+        </h3>
+        <dl>
+            <dt><a href="http://validator.w3.org/">W3C HTML Validation Service</a></dt>
+            <dd>Use this to check your HTML pages for invalid markup. Note that Angular uses many custom attributes that will be flagged as invalid by this tool, so don't use this with Angular-based pages.</dd>
+
+            <dt><a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a></dt>
+            <dd>Use this to validate your CSS pages. Browsers will just ignore invalid content in your CSS pages without any warnings, so if you are having troubles getting your CSS to work, try validating your stylesheet to make sure you don't have an error.</dd>
+
+            <dt><a href="http://www.jslint.com/">JS Lint</a></dt>
+            <dd>Use this to detect potential problems in your JavaScript. This is a <em>very</em> aggressive lint tool, however, so take its advice with a grain of salt. IDEs like Visual Studio Code and Brackets already have integrated linters built-in, and there are several linter packages for Sublime.</dd>
+        </dl>
+
+    </div> <!-- column -->
+
+    <div class="col-md-4">
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 421.422 421.421"><path d="M366.017 15.7c0-8.67-7.02-15.7-15.7-15.7H31.886c-3.25 0-6.274.99-8.78 2.69C21.438 3.82 20 5.255 18.87 6.926c-1.695 2.503-2.685 5.528-2.685 8.774V88.1c0 3.25.99 6.277 2.685 8.78 1.13 1.67 2.567 3.107 4.238 4.24 2.505 1.692 5.528 2.682 8.778 2.682h318.43c8.68 0 15.7-7.027 15.7-15.7V63.67h15.666v52.15L194.13 150.063c-5.6 1.02-9.656 5.897-9.656 11.59v50.445h-11.968c-8.674 0-15.7 7.025-15.7 15.7V405.72c0 8.672 7.026 15.7 15.7 15.7h47.488c8.672 0 15.7-7.028 15.7-15.7V227.798c0-8.668-7.028-15.7-15.7-15.7h-11.962v-40.62l187.548-34.242c5.603-1.024 9.657-5.895 9.657-11.587V51.9c0-6.502-5.273-11.776-11.773-11.776h-27.43V15.702h-.017zm-142.87 34.593c15.185 0 15.185 23.55 0 23.55-15.195 0-15.195-23.55 0-23.55zM344.782 14.69c-1.485 4.132-4.96 7.61-10.426 8.126-4.685.415-9.245 1.334-13.737 2.487-1.38 10.982-4.537 21.678-4.585 32.84-.028 10.96-16.943 17.08-21.94 5.942-11.485-25.605-21.572-31.314-48.28-31.024-16.44.174-31.13-2.598-46.093-8.266-6.848.882-13.738 1.563-20.294 1.356-4.727 16.038 2.707 29.425-3.8 45.588-3.57 8.87-16.07 12.54-21.525 2.81-6.972-12.435-7.387-24.25-11.304-31.54-.724 5.195-4.46 9.897-11.243 9.897-9.716 0-13.19-9.632-10.463-16.58-2.354.377-4.877.872-7.754 1.592-14.194 3.55-26.193-.008-38.045-3.124v21.97c0 6.42-5.355 11.775-11.775 11.775-6.422 0-11.776-5.356-11.776-11.776V31.977c0-.202.053-.398.06-.605-6.75.345-13.838 2.222-21.596 6.847-.69.408-1.453.723-2.242.965V15.7c0-2.165 1.757-3.924 3.925-3.924h318.43c1.964 0 3.51 1.46 3.812 3.34-3.11-.166-6.22-.323-9.35-.427z"/></svg>
+            Color
+        </h3>
+        <dl>
+            <dt><a href="https://color.adobe.com/">Adobe Color CC</a></dt>
+            <dd>An amazing tool for generating color schemes. You can also upload a photo to build a color schema based on the photo's dominant colors.</dd>
+
+            <dt><a href="http://paletton.com/">Paletton Color Schema Designer</a></dt>
+            <dd>A helpful tool for generating color schemes from a base color</dd>
+
+            <dt><a href="http://www.colourlovers.com/">Colour Lovers</a></dt>
+            <dd>A site with tons of free color palettes and patterns.</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496.188 496.188"><path d="M196.698 108.246c-5.006-16.197-20-27.24-36.96-27.24h-41.996c-17.006 0-32.037 11.115-37.01 27.395L1.63 367.258C-1.82 378.504.273 390.71 7.285 400.16c6.992 9.446 18.05 15.024 29.81 15.024 16.67 0 31.288-11.116 35.748-27.167l16.263-58.612h95.69l17.513 58.246c4.91 16.346 19.953 27.534 37.05 27.534 12.308 0 23.872-5.846 31.157-15.742 7.3-9.904 9.448-22.68 5.81-34.42l-79.63-256.776zm-96.68 164.645l19.808-70.912c5.446-19.337 10.426-44.61 15.398-64.45h.946c4.974 19.84 10.96 44.624 16.88 64.45l20.833 70.913h-73.865zM495.093 362.394v-69.026c0-46.676-21.128-85.658-87.33-85.658-24.578 0-45.018 4.506-59.918 9.814-9.902 3.53-15.35 14.11-12.473 24.217l.197.666c1.51 5.32 5.155 9.783 10.064 12.352 4.895 2.57 10.62 3.025 15.87 1.253 10.85-3.66 23.292-6.08 35.31-6.08 30.46 0 36.153 15.027 36.153 25.58v2.854C362.71 277.95 316.43 302.71 316.43 354.28c0 31.68 23.952 60.896 64.17 60.896 23.534 0 43.813-8.538 56.824-24.37h1.198l1.596 8.685c1.207 6.497 6.864 11.222 13.482 11.222h28.767c3.824 0 7.467-1.587 10.054-4.384 2.603-2.797 3.92-6.554 3.627-10.358-.747-9.775-1.054-21.51-1.054-33.576zm-60.126-23.954c0 3.65-.39 7.31-1.218 10.554-4.054 12.588-16.64 22.736-32.073 22.736-13.792 0-24.36-7.71-24.36-23.54 0-23.956 25.188-31.665 57.65-31.268v21.518z"/></svg>
+            Fonts and Text
+        </h3>
+        <dl>
+            <dt><a href="http://www.google.com/fonts">Google Fonts</a></dt>
+            <dd>A collection of free custom fonts that you can reference directly in your stylesheets or HTML pages. Click on the 'Quick-use' button next to any font to get the necessary HTML/CSS.</dd>
+
+            <dt><a href="http://www.lipsum.com/">Lorem Ipsum Generator</a></dt>
+            <dd>A tool for generating any amount of "lorem ipsum" text. Web developers and designers use this to add dummy text to their pages in order to see how their font and page layout choices will look. If you use a web-optimized text editor, you can also generate this by just typing <code>lorem</code> (all lower case) and then hit tab.</dd>
+
+            <dt><a href="http://baconipsum.com/">Bacon Ipsum Generator</a></dt>
+            <dd>As their tag line says..."a meatier lorem ipsum generator".... If you're wanting even more creative generators, see this list of <a href="http://mashable.com/2013/07/11/lorem-ipsum/">56 Unique Lorem Ipsum Generators</a>, or this list of <a href="http://designshack.net/articles/inspiration/30-useful-and-hilarious-lorem-ipsum-generators/">30 Useful and Hilarious Lorem Ipsum Generators</a> </dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.066 37.066"><g><path d="M36.785 12.556L15.787 2.526c-.244-.12-.54-.017-.654.226l-4.57 9.565h2.49l3.354-7.028 18.205 8.695L28.92 25.9l-3.206-1.53v6.3l1.97.94c.247.12.538.012.655-.232l8.677-18.17c.118-.243.014-.536-.232-.652z"/><path d="M23.764 13.472H.492c-.27 0-.492.22-.492.488V34.1c0 .27.223.49.492.49h23.27c.272 0 .493-.22.493-.49V13.96c0-.27-.22-.488-.49-.488zM22.42 28.906h-1.475c-.86-2.203-1.916-5.287-3.52-4.875-1.882.48-2.82 4.876-2.82 4.876s-.964-4.96-3.618-7.614c-2.655-2.655-5.227 7.614-5.227 7.614H2.246V15.7H22.42v13.206z"/><circle cx="5.502" cy="18.533" r="1.646"/><path d="M16.545 19.695c.37 0 .715-.04 1.023-.1.36.152.797.245 1.268.245 1.215 0 2.197-.593 2.197-1.325 0-.73-.982-1.323-2.197-1.323-.455 0-.877.083-1.227.228-.146-.14-.34-.228-.554-.228h-.318c-.408 0-.73.31-.775.702-.982.103-1.713.46-1.713.883 0 .507 1.027.918 2.295.918z"/></g></svg>
+            Photos
+        </h3>
+        <dl>
+            <dt><a href="http://www.morguefile.com/">Morgue File</a></dt>
+            <dd>Searchable set of free stock photos, some professional and some amateur. No attribution required. Pro tip: sort results by "most downloads" to see the best ones.</dd>
+
+            <dt><a href="https://pixabay.com/">Pixabay</a></dt>
+            <dd>Searchable set of free stock photos, vector drawings, and illustrations. Most require attribution.</dd>
+
+            <dt><a href="http://www.freeimages.com/">FreeImages</a></dt>
+            <dd>Searchable set of free and "premium" photos.</dd>
+
+            <dt><a href="https://tinyjpg.com/">Tiny JPG/PNG</a></dt>
+            <dd>Online tool that compresses JPGs and PNGs without any noticeable loss of quality. This can reduce large image files by significant amounts, greatly reducing download time over slower mobile networks.</dd>
+        </dl>
+
+        <h3>
+            <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.275 8.315c0-.063-.015-.12-.04-.173-.023-.322-.054-.373-.08-.418-.06-.096-.575-.632-1.536-1.594l-3.903-3.9c-.962-.96-1.498-1.478-1.59-1.533-.094-.058-.2-.124-2.412-.124H6.84c-.612 0-2.05.002-2.177.02-.192.025-.482.205-.6.32-.102.105-.24.283-.284.44-.037.117-.055.903-.055 2.335v16.624c0 .082 0 2.022.02 2.177.025.19.206.48.32.597.082.08.266.233.443.288.148.043 1.35.053 2.332.053h10.32c.082 0 2.02 0 2.178-.02.193-.025.482-.207.598-.32.103-.105.24-.28.287-.442.035-.118.053-.903.053-2.333v-10.18c0-.81-.01-1.336-.023-1.684.014-.043.022-.088.022-.135zm-7.345-6.72c.253.242.678.658 1.22 1.202l3.903 3.9c.542.54.957.965 1.2 1.218H14.53c-.883 0-1.6-.718-1.6-1.6v-4.72zm6.545 18.717c0 1.17-.018 2.043-.012 2.085-.01.02-.05.08-.092.122-.03.026-.134.088-.12.092-.088.006-.883.015-2.09.015H6.84c-.99 0-1.77-.013-2.01-.013-.042 0-.068 0-.074.002-.02-.01-.08-.05-.122-.092-.026-.03-.082-.124-.093-.124-.006-.087-.015-.88-.015-2.088V3.688c0-1.215.018-2.045.014-2.087.008-.02.048-.08.087-.118.03-.027.136-.088.127-.094.096-.007.92-.014 2.086-.014h3.875c.566 0 1.052.007 1.414.017v4.926c0 1.323 1.076 2.4 2.4 2.4h4.93c.008.363.015.85.015 1.417v10.18z"/><path d="M11.634 20.203c.01.017.02.033.032.048.01.013.013.025.023.036s.022.015.034.023c.03.022.06.047.095.062.053.022.11.03.166.028.107.004.215-.032.297-.114.024-.024.037-.054.054-.08l2.974-2.975c.157-.155.157-.41 0-.565-.077-.078-.18-.117-.282-.117s-.205.04-.283.117l-2.37 2.37v-6.063c0-.22-.18-.4-.4-.4s-.4.18-.4.4v6.037L9.23 16.664c-.078-.078-.18-.117-.283-.117s-.205.04-.283.117c-.156.156-.156.41 0 .566l2.97 2.973z"/></svg>
+            Icons
+        </h3>
+        <dl>
+            <dt><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></dt>
+            <dd>A custom font with a bunch of icons instead of letters. Because this is a font instead of a PNG, you can scale and color the icons using the normal CSS text formatting properties. They also offer some additional CSS classes to <a href="http://fortawesome.github.io/Font-Awesome/examples/">animate, rotate, flip and stack the icons</a>.</dd>
+
+            <dt><a href="http://www.flaticon.com/">Flat Icon</a></dt>
+            <dd>A large set of flat-look icons that you can download individually as SVG (scalable) or PNG (fixed) images, or assemble a set into a custom font. The latter option has all the benefits of Font Awesome, but you get to choose which icons you want. Attribution is required.</dd>
+
+            <dt><a href="http://flaticons.net/">Flat Icons</a></dt>
+            <dd>Customizable and free flat-look icons.</dd>
+
+            <dt><a href="https://www.iconfinder.com/">Icon Finder</a></dt>
+            <dd>A fabulous collection of icons, most of which are free and come in a variety of sizes.</dd>
+
+            <dt><a href="http://thenounproject.com/">The Noun Project</a></dt>
+            <dd>A collection of simple, flat, monochromatic icons. All of these require attribution.</dd>
+
+            <dt><a href="https://jakearchibald.github.io/svgomg/">SVG Optimizer</a></dt>
+            <dd>An online tool that will optimize SVG icons, removing unecessary elements and noise. Very handy if you want to include an SVG icon inline in your HTML.</dd>
+        </dl>
+
+    </div> <!-- column -->
+</div>
+
+        <footer>
+            <p>
+                <small>
+                    &copy; 2016, 
+                    <a href="https://ischool.uw.edu/people/faculty/dlsinfo">Dave Stearns</a>, 
+                    <a href="https://ischool.uw.edu/">The Information School</a>, 
+                    <a href="http://www.washington.edu/">University of Washington</a>
+                </small>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
