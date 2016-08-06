@@ -80,6 +80,10 @@ gulp.task('merge-md', () => {
 gulp.task('merge-html', () => {
     return gulp.src('./src/*/*.html')
         .pipe(through.obj(mergeHTML))
+        .pipe($.htmlmin({
+            collapseWhitespace: true,
+            conservativeCollapse: true
+        }))
         .pipe(gulp.dest(DIST_DIR));
 });
 
@@ -91,6 +95,8 @@ gulp.task('images', () => {
 
 gulp.task('global-css', () => {
     return gulp.src('./src/css/**')
+        .pipe($.autoprefixer('last 2 version'))
+        .pipe($.cssnano())
         .pipe(gulp.dest(DIST_DIR + '/css'));
 });
 

@@ -79,9 +79,9 @@ selector {
     ...
 }</code></pre>
 <p>The syntax is a space-delimited list of selectors, so you can use element or class selectors at each level. You can also have as many levels as you want, but it's best practice to use no more than two or three. For example, to target all elements with the style class <code>.logo</code> that exist inside a paragraph that exists inside the header, your selector would look like:</p>
-<pre><code class="language-css">    header p .logo {
-        ...
-    }</code></pre>
+<pre><code class="language-css">header p .logo {
+    ...
+}</code></pre>
 <p>Note that descendant selectors will select matching descendant elements  anywhere lower in the tree branch, not just direct children, so the <code>.logo</code> elements here could be nested several layers below the <code>&lt;p&gt;</code> element. This is usually a good idea because you may introduce new nesting layers to your page as you go along. But if you really want to select only direct children, you can use this variant of the syntax, known as a <strong>child selector</strong>:</p>
 <pre><code class="language-css">/* selects only the p elements that are direct children the header element  */
 header &gt; p {
