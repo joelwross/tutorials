@@ -1,0 +1,35 @@
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+footer {
+    margin-top: 2em;
+    border-top: 1px solid #DDD;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+li, dd {
+    margin-bottom: 0.5em;
+}
+
+svg {
+    height: 1em;
+    fill: #333;
+}
+
+.term {
+    font-weight: bold;
+}
+
+.replace-token {
+    font-style: italic;
+    background-color: #FFFFAA;
+}
+
+.screenshot {
+    border: 1px dotted #DDD;
+    padding: 5px;
+}

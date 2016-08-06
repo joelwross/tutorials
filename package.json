@@ -1,0 +1,30 @@
+{
+  "name": "tutorials",
+  "version": "1.0.0",
+  "description": "Various tutorials for programming courses",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drstearns/tutorials.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drstearns/tutorials/issues"
+  },
+  "homepage": "https://github.com/drstearns/tutorials#readme",
+  "dependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-debug": "^2.1.2",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-load-plugins": "^1.2.4",
+    "handlebars": "^4.0.5",
+    "htmlparser2": "^3.9.1",
+    "through2": "^2.0.1"
+  }
+}
