@@ -6,7 +6,7 @@ const del = require('del');
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-const BUILD_DIR = './build';
+const DIST_DIR = './dist';
 
 var template = handlebars.compile(fs.readFileSync('./src/template.html', {encoding: 'utf8'}));
 
@@ -54,36 +54,42 @@ function mergeHTML(file, enc, cb) {
     });
 }
 
+gulp.task('merge-md', () => {
+    return gulp.src('./src/*/*.md')
+        .pipe(through.obj(convertMarkdown))
+        .pipe(gulp.dest(DIST_DIR))
+});
+
 gulp.task('merge-html', () => {
     return gulp.src('./src/*/*.html')
         .pipe(through.obj(mergeHTML))
-        .pipe(gulp.dest(BUILD_DIR));
+        .pipe(gulp.dest(DIST_DIR));
 });
 
 gulp.task('images', () => {
     return gulp.src('./src/*/img/**')
         .pipe($.cache($.imagemin()))
-        .pipe(gulp.dest(BUILD_DIR));
+        .pipe(gulp.dest(DIST_DIR));
 });
 
 gulp.task('global-css', () => {
     return gulp.src('./src/css/**')
-        .pipe(gulp.dest(BUILD_DIR + '/css'));
+        .pipe(gulp.dest(DIST_DIR + '/css'));
 });
 
 gulp.task('global-img', () => {
     return gulp.src('./src/img/**')
         .pipe($.cache($.imagemin()))
-        .pipe(gulp.dest(BUILD_DIR + '/img'));
+        .pipe(gulp.dest(DIST_DIR + '/img'));
 });
 
 gulp.task('global-lib', () => {
     return gulp.src('./src/lib/**')
-        .pipe(gulp.dest(BUILD_DIR + '/lib'));
+        .pipe(gulp.dest(DIST_DIR + '/lib'));
 });
 
 gulp.task('clean', () => {
-    return del('./build');
+    return del(DIST_DIR);
 });
 
 gulp.task('default', ['merge-html', 'images', 'global-css', 'global-img', 'global-lib']);

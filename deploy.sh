@@ -1,9 +1,10 @@
 #! /bin/bash
+$DIST_DIR = dist
 if [ -n "$1" ]; then
-    echo "building to build/..."
+    echo "building to $DIST_DIR..."
     gulp
-    echo "copying files from build/ to $1..."
-    rsync -azP ./build/ $1
+    echo "copying files from $DIST_DIR to $1..."
+    rsync -azP ./$DIST_DIR/ $1
 else
     echo "Usage:"
     echo "  ./deply.sh remote-destination"
