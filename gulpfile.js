@@ -54,6 +54,10 @@ function mergeHTML(file, enc, cb) {
     });
 }
 
+function convertMarkdown(file, enc, cb) {
+    cb(nul, file);
+}
+
 gulp.task('merge-md', () => {
     return gulp.src('./src/*/*.md')
         .pipe(through.obj(convertMarkdown))

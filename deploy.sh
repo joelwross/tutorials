@@ -1,5 +1,5 @@
 #! /bin/bash
-$DIST_DIR = dist
+DIST_DIR="dist"
 if [ -n "$1" ]; then
     echo "building to $DIST_DIR..."
     gulp
