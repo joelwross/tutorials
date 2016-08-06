@@ -23,8 +23,10 @@
     "gulp-debug": "^2.1.2",
     "gulp-imagemin": "^3.0.2",
     "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
     "handlebars": "^4.0.5",
     "htmlparser2": "^3.9.1",
+    "showdown": "^1.4.2",
     "through2": "^2.0.1"
   }
 }

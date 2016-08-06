@@ -1,6 +1,7 @@
 const fs = require('fs');
 const handlebars = require('handlebars');
 const htmlparser = require('htmlparser2');
+const showdown = require('showdown');
 const through = require('through2');
 const del = require('del');
 const gulp = require('gulp');
@@ -8,6 +9,14 @@ const $ = require('gulp-load-plugins')();
 
 const DIST_DIR = './dist';
 
+var mdConverter = new showdown.Converter({
+    omitExtraWLInCodeBlocks: true,
+    prefixHeaderId: "sec-",
+    parseImgDimensions: true,
+    simplifiedAutoLink: true,
+    strikethrough: true,
+    tables: true
+});
 var template = handlebars.compile(fs.readFileSync('./src/template.html', {encoding: 'utf8'}));
 
 function extractTitleFromHTML(file) {
@@ -55,12 +64,16 @@ function mergeHTML(file, enc, cb) {
 }
 
 function convertMarkdown(file, enc, cb) {
-    cb(nul, file);
+    var html = mdConverter.makeHtml(file.contents.toString('utf8'));
+    file.contents = Buffer.from(html, 'utf8');
+    cb(null, file);
 }
 
 gulp.task('merge-md', () => {
     return gulp.src('./src/*/*.md')
         .pipe(through.obj(convertMarkdown))
+        .pipe(through.obj(mergeHTML))
+        .pipe($.rename({extname: '.html'}))
         .pipe(gulp.dest(DIST_DIR))
 });
 
@@ -96,4 +109,4 @@ gulp.task('clean', () => {
     return del(DIST_DIR);
 });
 
-gulp.task('default', ['merge-html', 'images', 'global-css', 'global-img', 'global-lib']);
+gulp.task('default', ['merge-html', 'merge-md', 'images', 'global-css', 'global-img', 'global-lib']);
