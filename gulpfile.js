@@ -18,6 +18,8 @@ var mdConverter = new showdown.Converter({
     tables: true
 });
 var template = handlebars.compile(fs.readFileSync('./src/template.html', {encoding: 'utf8'}));
+var indexTemplate = handlebars.compile(fs.readFileSync('./src/index.html', {encoding: 'utf8'}));
+var tutorials = [];
 
 function extractTitleFromHTML(file) {
     return new Promise(function(resolve, reject) {
@@ -51,6 +53,12 @@ function extractTitleFromHTML(file) {
 
 function mergeHTML(file, enc, cb) {
     extractTitleFromHTML(file).then(title => {
+        var pathParts = file.path.split('/'); 
+        tutorials.push({
+            title: title,
+            url: pathParts[pathParts.length-2] + '/'
+        });
+
         var merged = template({
             title: title,
             content: file.contents.toString('utf8')
@@ -67,6 +75,12 @@ function convertMarkdown(file, enc, cb) {
     var html = mdConverter.makeHtml(file.contents.toString('utf8'));
     file.contents = Buffer.from(html, 'utf8');
     cb(null, file);
+}
+
+function mergeIndex(file, enc, cb) {
+    var merged = indexTemplate({tutorials: tutorials});
+    file.contents = Buffer.from(merged, 'utf8');
+    cb(null, file)
 }
 
 gulp.task('merge-md', () => {
@@ -111,8 +125,14 @@ gulp.task('global-lib', () => {
         .pipe(gulp.dest(DIST_DIR + '/lib'));
 });
 
+gulp.task('index', ['merge-html', 'merge-md'], () => {
+    return gulp.src('./src/index.html')
+        .pipe(through.obj(mergeIndex))
+        .pipe(gulp.dest(DIST_DIR));
+});
+
 gulp.task('clean', () => {
     return del(DIST_DIR);
 });
 
-gulp.task('default', ['merge-html', 'merge-md', 'images', 'global-css', 'global-img', 'global-lib']);
+gulp.task('default', ['merge-html', 'merge-md', 'images', 'global-css', 'global-img', 'global-lib', 'index']);
