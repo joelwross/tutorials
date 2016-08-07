@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>{{meta.title}}</title>
     <link rel="icon" href="../img/favicon.png">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -14,8 +14,16 @@
     <script defer src="../lib/prism.js"></script> 
 </head>
 <body>
-    <main class="container">
-{{{content}}}
+    <div class="container">
+        <header class="page-header">
+            <h1>{{meta.title}}</h1>
+            {{#if meta.subtitle}}
+            <p class="lead">{{meta.subtitle}}</p>
+            {{/if}}
+        </header>
+        <article>
+            {{{content}}}
+        </article>
         <footer>
             <p>
                 <small>
@@ -26,6 +34,6 @@
                 </small>
             </p>
         </footer>
-    </main>
+    </div>
 </body>
 </html>
