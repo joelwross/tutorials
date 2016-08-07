@@ -287,7 +287,7 @@ $ git revert --no-edit HEAD
     <li>When the official release is ready, the dev lead merges all commits from <code>release</code> into <code>master</code> and adds a <span class="term">tag</span> to indicate the version number.</li>
 </ol>
 
-<p>In this course, most of your work will be done individually, so the full implementation of git flow is probably a bit overkill. But using a <code>develop</code> branch is still a good idea, so let's practice that now.</p>
+<p>In this course, most of your work will be done individually, so the full implementation of git flow is probably a bit overkill. But using a separate branch for new feature work is still a good idea, so let's practice that now.</p>
 
 <p>In your repository directory, execute this command to create a new <code>develop</code> branch off of <code>master</code> and switch to it:</p>
 
@@ -327,8 +327,12 @@ $ git merge develop
 <p>GitHub makes this process fairly easy through their <a href="https://help.github.com/articles/creating-a-pull-request/">pull request feature</a>. Try using it by following these steps:</p>
 
 <ol>
-    <li>Switch back to your <code>develop</code> branch (<code>git checkout develop</code>)</li>
-    <li>Make another change to your <code>index.html</code> file, add it to the staging area, commit it, and push to GitHub. Note that when you push it may generate an error saying <code>the current branch has no upstream branch</code>, but it will also show you the exact command to run to set the upstream branch during the push. Run that command now.</li>
+    <li>Switch back to your <code>develop</code> branch (<code>git checkout develop</code>).</li>
+    <li>Make another change to your <code>index.html</code> file, add it to the staging area, and commit it.</li>
+    <li>Push that commit to GitHub using this slightly different command:
+        <pre><code class="language-bash">$ git push --set-upstream origin develop</code></pre>
+        The <code>--set-upstream</code> flag tells git to create a new branch on your GitHub repo (the <code>origin</code>) named <code>develop</code> and push all commits from the current local branch to it. 
+    </li>
     <li>Navigate to your repository on GitHub's web site, and choose the <strong>New Pull Request</strong> button. </li>
     <li>Choose <code>master</code> as the base branch, and <code>develop</code> as the compare branch. GitHub should automatically determine the set of commits to merge and let you know that the branches can be automatically merged.</li>
     <li>Choose the <strong>Create pull request</strong> button to finish creating the pull request.</li>
