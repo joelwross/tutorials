@@ -10,13 +10,24 @@ const $ = require('gulp-load-plugins')();
 
 const DIST_DIR = './dist';
 
+//adds class="table" to tables so that Bootstrap
+//will format them nicely
+var showdownTableExtension = function() {
+    return [{
+        type: 'output',
+        regex: '<table>',
+        replace: '<table class="table">'
+    }];
+};
+
 var mdConverter = new showdown.Converter({
     omitExtraWLInCodeBlocks: true,
     prefixHeaderId: "sec-",
     parseImgDimensions: true,
     simplifiedAutoLink: true,
     strikethrough: true,
-    tables: true
+    tables: true,
+    extensions: [showdownTableExtension]
 });
 var htmlminOpts = {
     collapseWhitespace: true,
