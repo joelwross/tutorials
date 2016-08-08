@@ -358,7 +358,7 @@ $ git pull
 
 <p>This will pull all new commits made to the <code>master</code> branch on the server and merge them into your local repo's <code>master</code> branch.</p>
 
-<p class="alert alert-warning">If there are multiple developers working on your repo, or if you work on the same repo from multiple machines (e.g., laptop, desktop, lab), it's a good idea to start each work session by executing <code>git pull</code> to pull any new commits made by others or by yourself on another machine. This command never hurts: if there's nothing new, it just tells you so and exits.</p>
+<p class="alert alert-warning">If there are multiple developers working on your repo, or if you work on the same repo from multiple machines (e.g., laptop, desktop, lab), it's a good idea to start each work session by executing <code>git pull</code> to pull any new commits made by others or by yourself on another machine. If there are new commits, git won't let you push until you've pulled them. This command never hurts: if there's nothing new, it just tells you so and exits.</p>
 
 <h2>Publish to GitHub Pages</h2>
 
