@@ -284,9 +284,9 @@ $ git revert --no-edit HEAD
 <ol>
     <li>The dev lead creates a <code>develop</code> branch off of <code>master</code> that reflects the current in-development version of the code. This branch contains features that are completed and tested, but haven't yet been officially released. If your software needs to be compiled (Java, C#, C++, Go, etc.), the official daily (unstable) build is made from this branch.</li>
 
-    <li>Each developer then creates a new branch off of <code>develop</code> for each new feature or set of related features. Code in these branches can be incomplete and unstable, and is largely private to the developer or developers working on those features. These are sometimes referred to as "topic branches."</li>
+    <li>Each developer then creates a new branch off of <code>develop</code> for each new feature or set of related features. Code in these branches can be incomplete and unstable, and is largely private to the developer or developers working on those features. These are often referred to as "topic branches."</li>
 
-    <li>Once the feature is complete and tested, the feature developer creates a <strong>pull request</strong> on GitHub, asking to merge all commits from the feature branch into the <code>develop</code> branch. The changes are reviewed by the dev lead or a committee, and if approved, the commits are then merged into the <code>develop</code> branch.</li>
+    <li>Once the feature is complete and tested, the feature developer creates a <strong>pull request</strong> on GitHub, asking to merge all commits from the feature branch into the <code>develop</code> branch. The changes are reviewed by the dev lead or a committee, and if approved, the commits are then merged into the <code>develop</code> branch. Other developers can then pull those commits into their own local repos using the <code>git pull</code> command.</li>
     
     <li>When all features for a given release are ready, the dev lead will create a <code>release</code> branch off of <code>develop</code>. Developers can then resume working on new features for the next release, and new commits can be merged into <code>develop</code> without disrupting the <code>release</code> branch. Release candidate (RC) builds are made from the <code>release</code> branch. If any last-minute bugs are found in the release candidate code, fixes are made to the <code>release</code> branch and then merged back into <code>develop</code> if appropriate.</li>
     
@@ -357,6 +357,8 @@ $ git pull
 </code></pre>
 
 <p>This will pull all new commits made to the <code>master</code> branch on the server and merge them into your local repo's <code>master</code> branch.</p>
+
+<p class="alert alert-warning">If there are multiple developers working on your repo, or if you work on the same repo from multiple machines (e.g., laptop, desktop, lab), it's a good idea to start each work session by executing <code>git pull</code> to pull any new commits made by others or by yourself on another machine. This command never hurts: if there's nothing new, it just tells you so and exits.</p>
 
 <h2>Publish to GitHub Pages</h2>
 
