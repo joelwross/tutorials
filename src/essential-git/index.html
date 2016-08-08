@@ -35,7 +35,7 @@
     <dd>A set of new changes that are ready to be committed to the repository. All changes to all files in the staging area will be included in the next commit, but not changes made to other files. Git doesn't automatically add new files to the staging area, nor does it add new versions of existing files. Instead, you tell git explicitly which files you want to include in the next commit via the <code>git add</code> command. This allows you to commit some changes while leaving others for a latter commit.</dd>
 
     <dt>branch</dt>
-    <dd>All git repositories start with one branch named <code>master</code>, but you can create other branches if you wish. Changes committed to one branch are kept separate from those committed to other branches, allowing you to work on new features or crazy ideas, but still quickly switch back to the main <code>master</code> branch.</dd>
+    <dd>All git repositories start with one branch named <code>master</code>, but you can create other branches if you wish. Changes committed to one branch are kept separate from those committed to other branches, allowing you to work on new features or crazy ideas, but still quickly switch back to the main <code>master</code> branch to make bug fixes. Once a feature is complete, you can merge committed changes from the new feature branch into the <code>master</code> branch with one quick command.</dd>
 
     <dt>remote</dt>
     <dd>A link to a copy of this same repository on a different machine. Typically this will be a central version of the repository that all local copies on your various development machines point to. You can push commits to, and pull commits from, a remote repository to keep everything in sync. You can also add more than one remote link if you are working with multiple remote repositories.</dd>
@@ -71,7 +71,7 @@
     <dd>Pushes all commits made since the last push to another remote repository, typically to a service like GitHub.</dd>
 
     <dt><code>git pull</code></dt>
-    <dd>Pulls all commits made since the last pull from another repository, and attempts to merge those changes into your current files. If the pulled commits involve changes to the same lines that you've already changed locally, this process will produce a <span class="term">merge conflict</span> that you will have to resolve.</dd>
+    <dd>Pulls all commits made since the last pull from another repository, and attempts to merge those changes into your current files. If the pulled commits involve changes to the same lines that you've already changed locally, this process will produce a <span class="term">merge conflict</span> that you will have to resolve by editing the file.</dd>
 </dl>
 
 <p>Also check out this handy <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">Cheat Sheet</a>, as well as documentation on <a href="https://git-scm.com/docs">the complete set of git commands</a>.</p>
@@ -88,7 +88,7 @@
 
 <p>To help you get comfortable with using git, let's create a test repository on GitHub, clone it to your local machine, make some changes, and push those back up to GitHub.</p>
 
-<p>Start by <a href="https://help.github.com/articles/create-a-repo/">creating a new repo on GitHub</a>. Since this is just a test, you can name it whatever you want, and you can make it public (GitHub charges for private repos).</p>
+<p>Start by <a href="https://help.github.com/articles/create-a-repo/">creating a new repo on GitHub</a>. Since this is just a test, you can name it whatever you want, and you can keep it public (GitHub charges for private repos). Check the box to says you want a README file so that your new repo will contain at least one file.</p>
 
 <p>This creates the repository on GitHub, but to work with it, you need to <span class="term">clone</span> that repository to your local machine. Cloning creates a copy of the repository on your machine, but also records where the copy came from, so that you can easily push changes back to the <span class="term">origin</span> repository.</p>
 
@@ -100,14 +100,16 @@
 
 <p class="alert alert-warning">These next steps are done at the command line. If you've never used the command line before, check out the written tutorial <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">Introduction to the Mac OS X Command Line</a> or the video <a href="https://www.youtube.com/watch?v=yIY3iPDVUBg">Introduction to the Terminal in Mac OS X</a>. If you're on Windows, check out this video on <a href="https://www.youtube.com/watch?v=bqV-eszlRhY">Git Bash for Windows</a>.</p>
 
-<p>If you're on a Mac, open the Terminal application; if you're on Windows, open the Git Bash command window. This will probably start in your home directory. It's good practice to keep all your code under a subdirectory, so if you haven't done so already, execute these commands to create a new subdirectory named <code>code</code> and change into it (note the <code>$</code> represents the command-line prompt; only type what follows the <code>$</code> and not the <code>$</code> itself):</p>
+<p>If you're on a Mac, open the Terminal application; if you're on Windows, open the Git Bash command window. This will probably start in your home directory. It's good practice to keep all your code under a subdirectory, so if you haven't done so already, execute these commands to create a new subdirectory named <code>code</code> and change into it.</p>
+
+<p class="alert alert-warning">The <code>$</code> in all of these command snippets represents the command-line prompt; only type what follows the <code>$</code> and not the <code>$</code> itself.</p>
 
 <pre><code class="language-bash">
 $ mkdir code
 $ cd code
 </code></pre>
 
-<p>The <code>mkdir</code> or "make directory" command creates a new subdirectory within the current directory, and the name of that new subdirectory follows the command (in this case "code"). The <code>cd</code> or "change directory" command changes the current directory to whatever path follows the command. In this case we changed into the new subdirectory we created during the previous command.</p>
+<p>The <code>mkdir</code> or "make directory" command creates a new subdirectory within the current directory, and the name of that new subdirectory follows the command (in this case <code>code</code>). The <code>cd</code> or "change directory" command changes the current directory to whatever path follows the command. In this case we changed into the new subdirectory we created during the previous command.</p>
 
 <p class="alert alert-warning">Feel free to organize your files differently if you want to. I don't care how you organize your local files, but it's good practice to keep your code separate from your other documents.</p>
 
@@ -158,9 +160,9 @@ $ git config --global core.editor nano
 
 <h2>Add a .gitignore File</h2>
 
-<p>Sometimes you want git to ignore particular directories or files in your project. For example, if you use a Mac and you tend to organize your files in the finder by dragging them around, the Mac will create a hidden file in that folder named <code>.DS_Store</code> to track the position of all the icons. You don't want to add a file like that to your git repository, as it will likely differ from machine to machine. If you add this sort of file, and you work on your code from multiple machines (or work in a team) you will end up with lots of merge conflicts.</p>
+<p>Sometimes you want git to ignore particular directories or files in your project. For example, if you use a Mac and you tend to organize your files in the finder by dragging them around, the Mac will create a hidden file in that folder named <code>.DS_Store</code> to track the position of all the icons. You don't want to add a file like that to your git repository, as it will likely differ from machine to machine and it's not relevant to your code. If you add this sort of file, and you work on your code from multiple machines (or work in a team) you will end up with lots of merge conflicts.</p>
 
-<p>You can tell git to ignore files like this by creating a special file in your project directory named <code>.gitignore</code>. If git sees a file with this name in your project directory, it will ignore directories or files that are listed in the file. The file uses a very simple format: each line should list a directory or file path to ignore. For example:</p>
+<p>You can tell git to ignore files like this by creating a special file in your project directory named <code>.gitignore</code>. If git sees a file with this name in your project directory, it will ignore directories or files that are listed in the file. The file uses a very simple format: each line should contain a directory or file path to ignore. For example:</p>
 
 <pre><code>.DS_Store
 node_modules
@@ -174,7 +176,7 @@ node_modules
 $ echo ".DS_Store" >> .gitignore
 </code></pre>
 
-<p>This command will create the file <code>.gitignore</code> if it doesn't already exist, and then append the text <code>.idea</code> as a new line at the end of the file. This tells git to ignore a file named <code>.DS_Store</code> if one exists inside your project directory. This will keep this file out of your repository, and avoid lots of merge conflicts in a team development scenario. You can verify that this worked by executing this command:</p>
+<p>This command will create the file <code>.gitignore</code> if it doesn't already exist, and then append the text <code>.DS_Store</code> as a new line at the end of the file. This tells git to ignore a file named <code>.DS_Store</code> if one exists inside your project directory. This will keep this file out of your repository, and avoid lots of merge conflicts in a team development scenario. You can verify that this worked by executing this command:</p>
 
 <pre><code class="language-bash">
 $ cat .gitignore
@@ -202,13 +204,13 @@ $ git add .
 
 <p>The <code>.</code> character refers to the current directory, so this command tells git to add all new and modified files in this directory and below to the staging area.</p>
 
-<p>Now commit these files using this command:</p>
+<p>Now commit these changes using this command:</p>
 
 <pre><code class="language-bash">
 $ git commit -m "added gitignore file"
 </code></pre>
 
-<p class="alert alert-warning">If you omit the <code>-m "message"</code> part of the command, git will put you into a command-line text editor so that you can compose a message. If you configured the editor to be nano, as I recommended above, you should see a helpful command summary at the bottom. Type your message and hit <code>ctrl+o</code> to write the file and <code>ctrl+x</code> to exit the editor and return to the command prompt. If you didn't configure nano as your editor, you are probably in vim instead: hit <code>Esc</code> and then type <code>:wq</code> to save and exit.</p>
+<p class="alert alert-warning">If you omit the <code>-m "message"</code> part of the command, git will put you into a command-line text editor so that you can compose a message. If you configured the editor to be nano, as I recommended above, you should see a helpful command summary at the bottom. Type your message and hit <code>ctrl+o</code> to write the file and <code>ctrl+x</code> to exit the editor, returning to the command prompt. If you didn't configure nano as your editor, you are probably in vim instead: hit <code>Esc</code>, type <code>:wq</code>, and hit <code>Enter</code> to save and exit.</p>
 
 <p>Your changes are now committed to the repository. To verify this run <code>git status</code> again and it should say that you have nothing to commit.</p>
 
@@ -229,7 +231,7 @@ $ git push
 <p>Now that you know how to add, commit, and push, try going through the cycle a few more times. If you need inspiration, do something like this:</p>
 
 <ol>
-    <li>Create a simple <code>index.html</code> file in the repository directory.</li>
+    <li>Create a simple <a href="../essential-html/">HTML file</a> named <code>index.html</code> in the repository directory.</li>
     <li>Add it to the staging area.</li>
     <li>Commit the new file to your local repository.</li>
     <li>Push the changes to GitHub and verify that the new HTML file is there.</li>
@@ -269,7 +271,7 @@ $ git checkout -- index.html
 $ git revert --no-edit HEAD
 </code></pre>
 
-<p>The <code>--no-edit</code> option tells git to use the default revert message instead of prompting you for one, and <code>HEAD</code> tells git to revert the most recent commit.</p>
+<p>The <code>--no-edit</code> option tells git to use the default revert message instead of prompting you for one, and <code>HEAD</code> tells git to revert the most recent commit, which is pointed to by the <code>HEAD</code> reference variable.</p>
 
 <p>Interestingly, this doesn't actually remove your previous commit from the repository's commit history. Instead, it creates a new commit that undoes whatever changes were done in the previous commit. From an archival point of view, this is great&mdash;we never lose the historical record of what has been done in the repository, and we can always go back and see exactly what was changed, when it was changed, and by whom it was changed.</p>
 
@@ -281,21 +283,25 @@ $ git revert --no-edit HEAD
 
 <ol>
     <li>The dev lead creates a <code>develop</code> branch off of <code>master</code> that reflects the current in-development version of the code. This branch contains features that are completed and tested, but haven't yet been officially released. If your software needs to be compiled (Java, C#, C++, Go, etc.), the official daily (unstable) build is made from this branch.</li>
-    <li>Each developer then creates a new branch off of <code>develop</code> for each new feature or set of related features. Code in these branches can be incomplete and unstable, and is largely private to the developer or developers working on those features.</li>
+
+    <li>Each developer then creates a new branch off of <code>develop</code> for each new feature or set of related features. Code in these branches can be incomplete and unstable, and is largely private to the developer or developers working on those features. These are sometimes referred to as "topic branches."</li>
+
     <li>Once the feature is complete and tested, the feature developer creates a <strong>pull request</strong> on GitHub, asking to merge all commits from the feature branch into the <code>develop</code> branch. The changes are reviewed by the dev lead or a committee, and if approved, the commits are then merged into the <code>develop</code> branch.</li>
+    
     <li>When all features for a given release are ready, the dev lead will create a <code>release</code> branch off of <code>develop</code>. Developers can then resume working on new features for the next release, and new commits can be merged into <code>develop</code> without disrupting the <code>release</code> branch. Release candidate (RC) builds are made from the <code>release</code> branch. If any last-minute bugs are found in the release candidate code, fixes are made to the <code>release</code> branch and then merged back into <code>develop</code> if appropriate.</li>
+    
     <li>When the official release is ready, the dev lead merges all commits from <code>release</code> into <code>master</code> and adds a <span class="term">tag</span> to indicate the version number.</li>
 </ol>
 
-<p>In this course, most of your work will be done individually, so the full implementation of git flow is probably a bit overkill. But using a separate branch for new feature work is still a good idea, so let's practice that now.</p>
+<p>In this course, most of your work will be done individually, so the full implementation of git flow is probably a bit overkill. But using a separate topic branch for new feature work is still a good idea, so let's practice that now.</p>
 
-<p>In your repository directory, execute this command to create a new <code>develop</code> branch off of <code>master</code> and switch to it:</p>
+<p>In your repository directory, execute this command to create a new <code>feature-1</code> branch off of <code>master</code> and switch to it:</p>
 
 <pre><code class="language-bash">
-$ git checkout -b develop
+$ git checkout -b feature-1
 </code></pre>
 
-<p>To verify that you are on the <code>develop</code> branch, execute <code>git status</code> and ensure that it says <code>On branch develop</code>. You can also execute <code>git branch</code> to see all branches with the current one prefixed with a star (and in green on most systems).</p>
+<p>To verify that you are on the <code>feature-1</code> branch, execute <code>git status</code> and ensure that it says <code>On branch feature-1</code>. You can also execute <code>git branch</code> to see all branches with the current one prefixed with a star (and in green on most systems).</p>
 
 <p>Now make some changes to your <code>index.html</code> file, add those changes to the staging area, and commit them. Do something obvious so that it's easy to see when the change is there and not there. Ensure that all your changes are committed using <code>git status</code>.</p>
 
@@ -305,42 +311,43 @@ $ git checkout -b develop
 $ git checkout master
 </code></pre>
 
-<p>Look at your <code>index.html</code> file again and notice that the change you made is now gone. But don't worry---it's still there, but it's on the <code>develop</code> branch, not the <code>master</code> branch. Switch back to the <code>develop</code> branch using this command, and notice that your change returns:</p>
+<p>Look at your <code>index.html</code> file again and notice that the change you made is now gone. But don't worry&mdash;it's still there, but it's on the <code>feature-1</code> branch, not the <code>master</code> branch. Switch back to the <code>feature-1</code> branch using this command, and notice that your change returns:</p>
 
 <pre><code class="language-bash">
-$ git checkout develop
+$ git checkout feature-1
 </code></pre>
 
-<p>To merge the changes you committed to <code>develop</code> into <code>master</code>, use these commands:</p>
+<p>To merge the changes you committed to <code>feature-1</code> into <code>master</code>, use these commands:</p>
 
 <pre><code class="language-bash">
 $ git checkout master
-$ git merge develop
+$ git merge feature-1
 </code></pre>
 
-<p>Unless there's a conflict, git should just merge all the commits made to <code>develop</code> into <code>master</code> without any errors, and your <code>master</code> branch should now contain the changes you made over in the <code>develop</code> branch.</p>
+<p>Unless there's a conflict, git should just merge all the commits made to <code>feature-1</code> into <code>master</code> without any errors, and your <code>master</code> branch should now contain the changes you made over in the <code>feature-1</code> branch.</p>
 
 <h2>GitHub Pull Requests</h2>
 
-<p>Although git lets you merge commits from one branch to another, most professional teams use a <span class="term">pull request</span> when merging feature work into the <code>develop</code> or <code>master</code> branch. A pull request facilitates a process called <span class="term">code review</span>, where other developers review your changes, make comments, and ask you to correct anything they find problematic. Once your changes are approved, the reviewers will then merge your commits into the target branch.</p>
+<p>Although git lets you merge commits from one branch to another, most professional teams use a <span class="term">pull request</span> when merging feature work into the <code>master</code> branch. A pull request facilitates a process called <span class="term">code review</span>, where other developers review your changes, make comments, and ask you to correct anything they find problematic. Once your changes are approved, the reviewers will then merge your commits into the target branch.</p>
 
 <p>GitHub makes this process fairly easy through their <a href="https://help.github.com/articles/creating-a-pull-request/">pull request feature</a>. Try using it by following these steps:</p>
 
 <ol>
-    <li>Switch back to your <code>develop</code> branch (<code>git checkout develop</code>).</li>
+    <li>Make sure you are on the <code>master</code> branch (<code>git checkout master</code>)</li>
+    <li>Create another new branch off of <code>master</code> named <code>feature-2</code> (<code>git checkout -b feature-2</code>).</li>
     <li>Make another change to your <code>index.html</code> file, add it to the staging area, and commit it.</li>
-    <li>Push that commit to GitHub using this slightly different command:
-        <pre><code class="language-bash">$ git push --set-upstream origin develop</code></pre>
-        The <code>--set-upstream</code> flag tells git to create a new branch on your GitHub repo (the <code>origin</code>) named <code>develop</code> and push all commits from the current local branch to it. 
+    <li>Push your new branch with the new commit to GitHub using this slightly different command:
+        <pre><code class="language-bash">$ git push --set-upstream origin feature-2</code></pre>
+        The <code>--set-upstream</code> flag tells git to create a new branch on your GitHub repo (the <code>origin</code>) named <code>feature-2</code> and push all commits from the current local branch to it. 
     </li>
     <li>Navigate to your repository on GitHub's web site, and choose the <strong>New Pull Request</strong> button. </li>
-    <li>Choose <code>master</code> as the base branch, and <code>develop</code> as the compare branch. GitHub should automatically determine the set of commits to merge and let you know that the branches can be automatically merged.</li>
+    <li>Choose <code>master</code> as the base branch, and <code>feature-2</code> as the compare branch. GitHub should automatically determine the set of commits to merge and let you know that the branches can be automatically merged.</li>
     <li>Choose the <strong>Create pull request</strong> button to finish creating the pull request.</li>
 </ol>
 
 <p>After you create the pull request, you can click on the <strong>Files Changed</strong> tab to see all the changes made to all files since the last merge. You can click on any line to add comments.</p>
 
-<p>To merge the commits into the <code>master</code> branch, go back to the <strong>Conversation</strong> tab and choose the <strong>Merge pull request</strong> button.</p>
+<p>Normally you would let those reviewing your pull request perform the actual merge once they've approved your changes, but for this tutorial, you can pretend you are your own reviewer. To merge the commits into the <code>master</code> branch, go back to the <strong>Conversation</strong> tab and choose the <strong>Merge pull request</strong> button.</p>
 
 <p>Note that when you merge a pull request via the GitHub web site, the merge is done entirely on the server. Your local development clone will not yet have those changes in your local <code>master</code> branch. To get those changes from the server, switch to the <code>master</code> branch and use a <code>git pull</code> command:</p>
 
@@ -349,7 +356,7 @@ $ git checkout master
 $ git pull
 </code></pre>
 
-<p>This will pull all new commits from the server that you don't yet have in your local development repo.</p>
+<p>This will pull all new commits made to the <code>master</code> branch on the server and merge them into your local repo's <code>master</code> branch.</p>
 
 <h2>Publish to GitHub Pages</h2>
 
@@ -359,6 +366,12 @@ $ git pull
 
 <p>Create a new branch named <code>gh-pages</code> off of your <code>master</code> branch, and push the new branch to GitHub:</p>
 
+<pre><code class="language-bash">
+$ git checkout master
+$ git checkout -b gh-pages
+$ git push --set-upstream origin gh-pages
+</code></pre>
+
 <p>After the push completes, you should then be able to see your web page using the following URL, replacing <span class="replace-token">your-github-username</span> with your GitHub user name, and <span class="replace-token">your-repo-name</span> with your repository name:</p>
 
 <pre><code>https://<span class="replace-token">your-github-username</span>.github.io/<span class="replace-token">your-repo-name</span></code></pre>
@@ -366,15 +379,12 @@ $ git pull
 <p>Note three important things about all of this:</p>
 
 <ul>
-<li>The <code>gh-pages</code> branch must be named exactly that. If you misspell the name, or use an underscore instead of a dash, it won't work.</li>
-<li>Only the files and commits in the <code>gh-pages</code> branch are visible on the web. All commits in other branches (<code>develop</code>, <code>master</code>, etc.) are not visible on the web. This allows you to work on your site with others before publishing those changes to the web.</li>
-<li>Any content in the <code>gh-pages</code> branch will be publicly accessible, even if your repo is private. You can remove specific files from the <code>gh-pages</code> branch that you don't want visible on the web, while still keeping them in the <code>master</code> branch: use the <code>git rm</code> to remove the file and then add, commit, and push the deletion.</li>
+    <li>The <code>gh-pages</code> branch must be named exactly that. If you misspell the name, or use an underscore instead of a dash, it won't work.</li>
+    
+    <li>Only the files and commits in the <code>gh-pages</code> branch are visible on the web. All commits in other branches (<code>feature-2</code>, <code>master</code>, etc.) are not visible on the web. This allows you to work on your site with others before publishing those changes to the web.</li>
+    
+    <li>Any content in the <code>gh-pages</code> branch will be publicly accessible, even if your repo is private. You can remove specific files from the <code>gh-pages</code> branch that you don't want visible on the web, while still keeping them in the <code>master</code> branch: use the <code>git rm</code> to remove the file and then add, commit, and push the deletion.</li>
 </ul>
-
-<pre><code class="language-bash">
-$ git checkout -b gh-pages
-$ git push --set-upstream origin gh-pages
-</code></pre>
 
 <h2>Keep Learning</h2>
 
