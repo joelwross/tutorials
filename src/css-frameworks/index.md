@@ -1,16 +1,16 @@
-In the [Essential CSS](../essential-css/) and [Responsive CSS](../responsive-css/) tutorials, you learned how to write style rules to change the appearance of your web pages. Although you could implement a site with all custom style rules, most professionals build upon a well-tested **CSS framework** instead. The framework takes care of all the standard formatting, and defines several style classes you can use for common UI elements (badges, alerts, responsive navigation bars, tabs, drop-down buttons, tool tips and popovers, sliders, switches, carousels, etc.). You can then add your own custom rules on top of the framework to tweak the framework formatting, or add your own UI elements.
+In the [Essential CSS](../essential-css/) and [Responsive CSS](../responsive-css/) tutorials, you learned how to write style rules to change the appearance of your web pages. Although you could implement a entire site with only custom style rules, most professionals build upon a well-tested <span class="term">CSS framework</span> instead. The framework defines consistent and attractive formatting rules for all HTML elements, and defines several style classes you can use for common UI widgets (badges, alerts, cards, responsive navigation bars, tabs, drop-down buttons, tool tips and popovers, sliders, switches, carousels, etc.). You can then add your own custom rules on top of the framework to tweak the default framework formatting, or add your own UI widgets.
 
-A CSS framework is just a stylesheet with a bunch of rules that someone else wrote for you, and some accompanying JavaScript for the interactive elements. There's nothing magic about it. You can look at the stylesheet and see all the rules that are defined in there, and it's all stuff you could have written yourself. But those rules have been crafted by professionals and tested on a wide array of browsers to ensure consistent results, so we might as well build on top of them.
+A CSS framework is just a stylesheet with a bunch of rules that someone else wrote for you, and some accompanying JavaScript for the interactive widgets. There's nothing magic about it. You can look at the stylesheet and see all the rules that are defined in there, and it's all stuff you could have written yourself. But those rules have been crafted by professionals and tested on a wide array of browsers to ensure consistent results, so we might as well build on top of them.
 
 ## Popular CSS Frameworks
 
-There are several popular CSS frameworks to choose from. All of them provide beautiful standard formatting, pre-defined responsive layout grids that work on all browsers, and all the common UI elements you see on most web sites.
+There are several popular CSS frameworks to choose from. All of them provide beautiful formatting of HTML elements, pre-defined responsive multi-column layout grids that work on all browsers, and all the common UI elements you see on most web sites.
 
 ### Bootstrap
 
-Perhaps the most commonly-used CSS framework is [Bootstrap](http://getbootstrap.com/). It was originally created at Twitter to enforce some consistency amongst their internal tools, but after they released it as an open-source project in 2011, it became *very* widely used. That wide use has benefits and drawbacks: it's very well tested, documented, and supported, but it's also so prevalent that it's default look has become cliché. Thankfully, it's rather easy to [customize Bootstrap](http://getbootstrap.com/customize/) with your own fonts, colors, sizing, etc.
+The most commonly-used CSS framework on the web is [Bootstrap](http://getbootstrap.com/). It was originally created at Twitter to enforce some consistency amongst their internal tools, but after they released it as an open-source project in 2011, it became *very* widely used. That wide use has benefits and drawbacks: it's very well tested, documented, and supported, but it's also so prevalent that it's default look has become cliché. Thankfully, it's rather easy to [customize Bootstrap](http://getbootstrap.com/customize/) with your own fonts, colors, sizing, etc.
 
-Bootstrap is currently working on a [new version 4](http://v4-alpha.getbootstrap.com/) that promises to offer a Flexbox-based responsive grid, as well as a set of officially-supported themes.
+Bootstrap is currently working on a [new version 4](http://v4-alpha.getbootstrap.com/) that promises to offer a flexbox-based responsive grid layout, as well as a set of officially-supported themes.
 
 ### Foundation
 
@@ -18,7 +18,7 @@ Bootstrap's chief rival is [Foundation](http://foundation.zurb.com/). It has the
 
 ### Material Design Lite
 
-Bootstrap and Foundation defined their own design language, but if you are a fan of Google's [Material Design](https://material.google.com/), there are a few CSS frameworks based upon that. The official Google implementation is known as [Material Design Lite](https://getmdl.io/) (or MDL for short). Material Design is *very opinionated* so MDL is difficult to customize beyond changing the primary and accent colors, but the common Material Design UI elements are very easy to implement. Their style class names are also *very verbose*, as they follow the [Block, Element, Modifier](https://en.bem.info/methodology/) (BEM) naming method.
+Bootstrap and Foundation defined their own design language, but if you are a fan of Google's [Material Design](https://material.google.com/), there are a few CSS frameworks based upon that. The official Google implementation is known as [Material Design Lite](https://getmdl.io/), or MDL for short. Material Design is *very opinionated* so MDL is difficult to customize beyond changing the primary and accent colors. Their style class names are also *very verbose*, as they follow the [Block, Element, Modifier](https://en.bem.info/methodology/) (BEM) naming method. But it's a well-implemented framework that has all the smarts and money of Google behind it.
 
 ### Materialize
 
@@ -45,9 +45,9 @@ Linking to a CDN is a very easy option that has several benefits. The first is *
 
 <div class="alert alert-warning">Note that this loads version 3.3.7 specifically. Always check the <a href="http://getbootstrap.com/getting-started/#download-cdn">Bootstrap Getting Started page</a> to get the elements for their most current version.</div>
 
-Simplicity is one benefit, but **download speed** is another. Content Delivery Networks are a set of web servers that can deliver commonly-requested content very quickly all over the world. CDNs replicate this content to machines in several regions of the world, and use dynamic Domain Name Service (DNS) resolution to steer users to the machine nearest them. So a user in Australia might download the Bootstrap CSS from a server located in Singapore, while a user in the France might get the same CSS file from a server located in Ireland. Although it often seems like the Internet is instantaneous, dragging files halfway around the world is still relatively slow. If the files are large, it can create a noticeable delay.
+Simplicity is one benefit, but **download speed** is another. Content Delivery Networks are a set of web servers that can deliver commonly-requested content very quickly all over the world. CDNs replicate their content to machines in several regions of the world, and use dynamic Domain Name Service (DNS) resolution to steer users to the machine nearest them. So a user in Australia might download the Bootstrap CSS from a server located in Singapore, while a user in France might get the same CSS file from a server located in Ireland. Although it often seems like the Internet is instantaneous, dragging files halfway around the world is still relatively slow. If the files are large, it can create a noticeable delay.
 
-CDNs also increase perceived performance because the requested URL will be the same across various web sites that use the same file. The first time a user visits a site that uses this same URL, the CDN tells the browser that it can cache the file for a particular amount of time. The browser can also ask for the file content only if the file has been modified since the last time the browser downloaded it. Because the URL is the same between sites, it's very possible that a first-time user to your site has already downloaded your CSS framework files (especially if you use a popular framework like Bootstrap), and thus your site can render much faster.
+CDNs also increase perceived performance because the requested URL will be the same across various web sites that use the same file. The first time a user visits a site that uses this same framework, the CDN tells the browser that it can cache the files for a particular amount of time. The browser can also ask for the file content only if the file has been modified since the last time the browser downloaded it. Because the URLs are the same between sites, it's very possible that a first-time user to your site has already downloaded your CSS framework files (especially if you use a popular framework like Bootstrap), and thus your site can render much faster.
 
 A third benefit is **dynamic patching**. If the developers of your framework discover a bug that can be patched without breaking existing code, they can re-release the patched file to the CDN, and your users' will automatically pick it up the next time they visit your site.
 
@@ -61,13 +61,15 @@ A second potential benefit is that framework sites often let you customize the c
 
 A third benefit is realized if you use the [Sass](http://sass-lang.com/) or [Less](http://lesscss.org/) CSS pre-compilers. These tools extend the CSS syntax to include features found in most other programming languages: variables, functions, inheritance, includes, mix-ins, etc. Most CSS frameworks are built using one of these two pre-compilers, and their **source files are commonly included in the downloaded zip**. You can then refer to these source files directly in your own Sass or Less code, including only the parts of the framework you actually plan on using. You can also override their standard fonts, colors, sizes, etc., simply by resetting their variables.
 
-There are two main drawbacks to this method. First, it **adds large framework files to your code repository** that could easily be downloaded from the web as needed. Second, these **zips typically don't include other libraries that the framework depends upon**. For example, Bootstrap's JavaScript library requires the jQuery library, but that is not included in their distribution zip file. To eliminate both of these drawbacks, use a package manager.
+There are two main drawbacks to this method. First, it **adds large framework files to your code repository** that could easily be downloaded from the web as needed. Second, these **zips typically don't include other libraries that the framework depends upon**. For example, Bootstrap's JavaScript library requires the jQuery library, but that's not included in their distribution zip file, as they want you to load the most recent version. To eliminate both of these drawbacks, use a package manager.
 
 ### Using a Package Manager
 
-Package managers are command-line programs that consult online directories of available packages, find all other packages a given package depends upon, and downloads all of them to your project directory. They also commonly record the set of packages your program is using in a special file that you can add to your project's code repository. This takes the guess-work out of determining the set of packages you need for a given framework, and makes it really simple for a new developer joining your project to get all the packages your project needs in order to run.
+Package managers are command-line programs that consult online directories of available packages, find all other packages a given package depends upon, and downloads all of them to a subdirectory within your project directory. They also commonly record the set of packages your program is using in a special file that you can add to your project's code repository. This takes the guess-work out of determining the set of packages you need for a given framework, and makes it really simple for a new developer joining your project to get all the packages your project needs in order to run.
 
-In the web development space, the most commonly-used package managers are [`npm`](https://www.npmjs.com/) and [`bower`](https://bower.io/). The former was originally created for the server-side Node.js environment, while the latter was a fork of the former, adjusted for client-side web development projects. Since then, `npm` has expanded to include both server and client-side packages, but it still has [some issues](http://blog.npmjs.org/post/101775448305/npm-and-front-end-packaging) when used for client-side projects, so let's see how we can use `bower` to install the Bootstrap CSS framework.
+In the web development space, the most commonly-used package managers are [`npm`](https://www.npmjs.com/) and [`bower`](https://bower.io/). The former was originally created for the server-side Node.js environment, while the latter was a fork of the former, adjusted for the special needs of client-side web development projects. Since then, `npm` has expanded to include both server and client-side packages, so these days you can use either in most circumstances.
+
+Let's see how we can use `bower` to install the Bootstrap CSS framework.
 
 To use `bower` in a project, you first run this command within your project directory to create the file it uses to track meta-data about your project, including the packages your project depends on:
 
@@ -86,8 +88,11 @@ $ bower install --save bootstrap
 This will download both the Bootstrap and jQuery packages (because Bootstrap depends on jQuery) to a new directory named `bower_components`. You can then include them in your page by adding these elements to your `<head>` section:
 
 ```html
+<!-- Bootstrap css file -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- jQuery JavaScript library -->
 <script defer src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap JavaScript library -->
 <script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 ```
 
@@ -97,19 +102,21 @@ When new developers join your project, they can quickly install all the packages
 $ bower install
 ```
 
+You can also use `bower` to upgrade packages, or remove them from your project. See the [bower documentation](https://bower.io/docs/api/) for more details.
+
 ### Which is Best? CDN or Download?
 
-If you ask a group of developers which is the better approach---linking to a CDN or downloading via a package manager---you'll probably start a very heated debate. It's kind of like the [spaces vs tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI) debate. Each method has its benefits and drawbacks, and neither option is clearly superior to the other. But choose you must, and your choice should be something you stick with. The one thing you don't want to do is mix the two approaches in one project.
+If you ask a group of developers which is the better approach&mdash;linking to a CDN or downloading via a package manager&mdash;you'll probably start a very heated debate. It's kind of like the [spaces vs tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI) debate. Each method has its benefits and drawbacks, and neither option is clearly superior to the other. But choose you must, and your choice should be something you stick with. The one thing you don't want to do is mix the two approaches in one project.
 
 If you are new to web development and can't decide which approach to use, link to the CDN version. It's simple and the lack of offline support probably won't affect you much.
 
 ## Responsive Layout Grids
 
-At the core of all of these popular CSS Frameworks is a responsive grid layout system. These grids allow you to build multi-column layouts on all browsers, even those that don't support the new flexbox standard.
+At the core of all of these popular CSS Frameworks is a responsive grid layout system. These grids allow you to build multi-column layouts on all browsers, even those that don't support the new flexbox standard. These grids use very complicated CSS syntax to achieve this effect, and can still end-up with rendering problems, but they are your only option if you want to support IE users.
 
-These grid systems divide the horizontal space into 12 equal columns. A given element can span as many of these columns as you want, but after 12 columns, the next element will wrap to the next line. Since 12 can be divided evenly by 6, 4, or 3, you can easily create layouts with 2, 3, or 4 equally-sized elements that sit next to each other on the same line. Or you can create one element that spans 4 columns and another that spans 8 columns.
+These grid systems divide the horizontal space into 12 equal units. A given element can span as many of these grid units as you want, but after 12 units, the next element will wrap to the next line. Since 12 can be divided evenly by 6, 4, or 3, you can easily create layouts with 2, 3, or 4 equally-sized columns that sit next to each other on the same line. Or you can create one column that spans 4 units and another that spans 8 units. Any combination that adds up to 12 is fine.
 
-The number of columns is specified using CSS style classes. For example, this markup uses Bootstrap to create three equally-sized elements on the same line on all screens:
+The number of grid units any given element consumes is specified using specially-named CSS style classes. For example, this markup uses Bootstrap to create three equally-sized columns on all screens:
 
 ```html
 <div class="container">
@@ -131,7 +138,7 @@ The number of columns is specified using CSS style classes. For example, this ma
 ```
 In Bootstrap, grids should always be put inside an element with `class="container"` or `class="container-fluid"`. Both of these style classes add a little padding to the left and right, and the `container` class sets the `max-width` property so that it doesn't grow ridiculously wide on large desktop monitors.
 
-The `<div class=row>` element starts a row, and each `<div>` within that defines a new column. The style class `col-xs-4` tells Bootstrap that the element should consume 4 grid columns on extra-small screens and larger (`>=0px`), so all three of those `<div>` elements will appear side-by-side on all screen sizes. Here's what it looks like in the browser:
+The `<div class="row">` element starts a new row, and each direct child `<div>` within that row element defines a new column. The style class `col-xs-4` tells Bootstrap that the element should consume 4 grid units on extra-small screens and larger (essentially, all screens), so all three of those `<div>` elements will appear side-by-side on all screen sizes. Here's what it looks like in the browser:
 
 <p data-height="200" data-theme-id="dark" data-slug-hash="BzGXgk" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/BzGXgk/">Bootstrap Grid 1</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://assets.codepen.io/assets/embed/ei.js"></script>
@@ -157,12 +164,12 @@ That's handy, but the real power comes when you want that layout to respond to t
 </div>
 ```
 
-Note that the `col-xs-4` classes became `col-sm-4`. By default, the `<div>` elements will stretch to fill the entire row and thus stack on top of each other, and the `col-sm-4` will only start to create the multi-column layout on small screens and larger (`>=768px`). Those `col-md-N` style classes are defined within a media rule block with the condition `min-width(768px)`, so they won't be applied until the screen size is at least `768px` wide. Here's what it looks like in the browser:
+Note that the `col-xs-4` classes became `col-sm-4`. By default, the `<div>` elements will stretch to fill the entire row and thus stack on top of each other, but the `col-sm-4` will create a multi-column layout on small screens and larger (`>=768px`). If you look in the Bootstrap stylesheet, you'll see that those `col-md-4` style classes are defined within a media rule block that has the condition `min-width(768px)`, so they are applied only when the screen size is at least `768px` wide. Here's what it looks like in the browser:
 
 <p data-height="200" data-theme-id="dark" data-slug-hash="qNQZZW" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/qNQZZW/">Bootstrap Grid 2</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-Bootstrap also defines classes for `col-md-N`, which are in media rule blocks with the condition `min-width(992px)`, and `col-lg-N` classes, which are in media rule blocks with the condition `min-width(1200px)`.
+Bootstrap also defines classes for `col-md-*`, which are in media rule blocks with the condition `min-width(992px)`, and `col-lg-*` classes, which are in media rule blocks with the condition `min-width(1200px)`.
 
 You can also combine these classes to create different layouts on different sizes of screens:
 
@@ -190,7 +197,9 @@ With this markup, the first column consumes 4 grid units on small and medium scr
 <p data-height="200" data-theme-id="dark" data-slug-hash="mEabJR" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/mEabJR/">Bootstrap Grid 3</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
+See the [Bootstrap grid system documentation](http://getbootstrap.com/css/#grid) for more details.
+
 ## Keep Learning
 
-This has only scratch the surface of what you can do with a CSS framework like [Bootstrap](http://getbootstrap.com/css/), [Foundation](http://foundation.zurb.com/sites/docs/), [Materialize](http://materializecss.com/getting-started.html), or [Material Design Lite](https://getmdl.io/started/index.html). To learn more, see their respective documentation.
+This has only scratched the surface of what you can do with a CSS framework like [Bootstrap](http://getbootstrap.com/css/), [Foundation](http://foundation.zurb.com/sites/docs/), [Materialize](http://materializecss.com/getting-started.html), or [Material Design Lite](https://getmdl.io/started/index.html). To learn more, see their respective documentation.
 
