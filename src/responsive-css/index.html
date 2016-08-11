@@ -96,6 +96,8 @@ body {
     padding: 0 0.25em; /* a little padding between columns */
 }</code></pre>
 
+<p>This is what it looks like in the browser. Feel free to play around with the HTML or CSS to see what effects it has For example, try adding another <code>&lt;div class="column"&gt;</code> to the markup and notice how the flexbox just shrinks the existing ones down to make room for the new one. If you're feelign squeezed on space, click the "Edit on CodePen" link on the top right.</p>
+
 <p data-height="300" data-theme-id="dark" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
@@ -130,10 +132,16 @@ body {
 }
 </code></pre>
 
+<p>Here's a live preview. Try hiding and showing the CSS panel to simulate a wider and more narrow screen width. Or click the "Edit on CodePen" to open it in a new window that you can more easily resize.</p>
+
 <p data-height="550" data-theme-id="dark" data-slug-hash="GqYAVp" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/GqYAVp/">Flexbox Responsive</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>The <code>flex-basis</code> property controls how much width each column takes up by default, so setting it to 100% causes the column to stretch to the entire width of the container. Because we set <code>flex-wrap</code> to <code>wrap</code>, the following columns wrap to the next line, creating a stacked one-column layout.</p>
+
+<p>On screens <code>780px</code> and wider, we tell the flexbox to stop wrapping and size all the columns equally. This gives us a layout where all four columns are side-by-side on the same line.</p>
+
+<p>We could achieve the same result by setting <code>flex-basis: 25%</code> on the columns, and eliminating the <code>flex-wrap: nowrap</code>. But that assumes you have only four columns&mdash;if you added another column to your HTML, the fifth column would wrap to the next line. By setting <code>flex-basis: auto</code> and <code>flex-wrap: nowrap</code>, we ensure that all columns will be on the same line, regardles of how many there are. Try adjusting the CodePen above to see the difference.</p>
 
 <p>We can then extend this to support a two-by-two layout on medium screens:</p>
 
@@ -177,4 +185,5 @@ body {
 
 <h2>Keep Learning</h2>
 
-<p>This is just a taste of what flexbox can do. See Chris Coyier's <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> for more details.</p>
+<p>This is just a taste of what flexbox can do. See Chris Coyier's <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> for more details. Then play <a href="http://flexboxfroggy.com/">Flexbox Froggy</a> to test your understanding of flexbox layout!</p>
+
