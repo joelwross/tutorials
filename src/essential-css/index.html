@@ -335,14 +335,15 @@ p {
 <p>The first way is to <span class="term">float</span> an element. This is commonly done with pictures, though any element can be floated. You can float an element using the <code>float</code> CSS property</p>
 
 <pre><code class="language-css">
-.floated-image {
+.floated-image-right {
     float: right;
+    margin-left: 1em;
 }
 </code></pre>
 
-<p>This removes elements with the style class <code>.floated-image</code> from the normal page flow, shoves them to the right of their containing elements, and allows the rest of the content below them to &quot;float&quot; up around them. It looks like this:</p>
+<p>This removes elements with the style class <code>.floated-image-right</code> from the normal page flow, shoves them to the right of their containing elements, and allows the rest of the content below them to &quot;float&quot; up around them. It looks like this:</p>
 
-<p><img src="img/bunny.jpg" style="width:300px;max-width:50%;float:right;" alt="cute bunny floated to the right">This text is floating upward and wrapping around the image on the right. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptates consequuntur dicta sed repellendus veniam enim beatae unde. Asperiores iure voluptatem tempora possimus culpa totam odio vel ipsa odit rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam, quisquam impedit consectetur voluptatum perferendis sit nobis ab repudiandae illo sequi rerum vitae molestias quas vero ut corrupti iusto error? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias magnam qui animi. Mollitia iste, temporibus distinctio dolore, nemo tempora aspernatur quos dolor laudantium nam architecto incidunt soluta minus neque exercitationem.</p>
+<p><img src="img/bunny.jpg" class="floated-image-right image-container" alt="cute bunny floated to the right">This text is floating upward and wrapping around the image on the right. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptates consequuntur dicta sed repellendus veniam enim beatae unde. Asperiores iure voluptatem tempora possimus culpa totam odio vel ipsa odit rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam, quisquam impedit consectetur voluptatum perferendis sit nobis ab repudiandae illo sequi rerum vitae molestias quas vero ut corrupti iusto error? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias magnam qui animi. Mollitia iste, temporibus distinctio dolore, nemo tempora aspernatur quos dolor laudantium nam architecto incidunt soluta minus neque exercitationem.</p>
 
 <p style="clear:both;">You can float images to the right or left. The content below will continue to float upwards until one of those later elements &quot;clears&quot; the float (such as this element). You can clear the float using the CSS <code>clear</code> property.</p>
 <pre><code class="language-css">
@@ -373,17 +374,17 @@ nav {
 
 <p><code>position: fixed</code> fixes the element with respect to the entire browser window, but we can also position an element absolutely with respect to another containing element. For example, say we wanted to place an image in the upper-left corner of another image—like this:</p>
 
-<div style="width:300px;max-width:50%;position:relative;">
-    <img src="img/bunny.jpg" alt="cute bunny" style="width:100%;">
-    <img src="img/new.png" alt="new badge" style="position:absolute;top:0;right:0;">
+<div class="image-container">
+    <img src="img/bunny.jpg" alt="cute bunny" class="image">
+    <img src="img/new.png" alt="new badge" class="new-badge">
 </div>
 
 <p>This is achieved through a particular set of HTML elements, style classes, and CSS properties:</p>
 
 <pre><code class="language-html">
 &lt;div class="image-container"&gt;
-&lt;img src="img/bunny.jpg" alt="cute bunny" class="image"&gt;
-&lt;img src="img/new.png" alt="new badge" class="badge"&gt;
+    &lt;img src="img/bunny.jpg" alt="cute bunny" class="image"&gt;
+    &lt;img src="img/new.png" alt="new badge" class="new-badge"&gt;
 &lt;/div&gt;
 </code></pre>
 
@@ -397,8 +398,8 @@ nav {
     width: 100%;        /* image should have same width as container */
 }
 
-.image-container .badge {
-    position: absolute: /* badge is absolutely positioned relative to .image-container */
+.image-container .new-badge {
+    position: absolute; /* badge is absolutely positioned relative to .image-container */
     top: 0;             /* positioned in top-right corner */
     right: 0;
 }
@@ -410,7 +411,7 @@ nav {
 
 <pre><code class="language-html">
 &lt;div class="new-item"&gt;
-&lt;img src="img/bunny.jpg" alt="cute bunny"&gt;
+    &lt;img src="img/bunny.jpg" alt="cute bunny"&gt;
 &lt;/div&gt;
 </code></pre>
 <pre><code class="language-css">

@@ -1,0 +1,20 @@
+.floated-image-right {
+    float: right;
+    margin-left: 1em;
+}
+
+.image-container {
+    width: 300px;       /* container width is set to 300 pixels */
+    max-width:50%;
+    position: relative; /* absolutely positioned elements inside this element are relative to this element */
+}
+
+.image-container .image {
+    width: 100%;        /* image should have same width as container */
+}
+
+.image-container .new-badge {
+    position: absolute; /* badge is absolutely positioned relative to .image-container */
+    top: 0;             /* positioned in top-right corner */
+    right: 0;
+}

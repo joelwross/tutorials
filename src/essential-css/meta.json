@@ -1,4 +1,7 @@
 {
     "title": "Essential CSS",
-    "subtitle": "How to add some style to your web pages"
+    "subtitle": "How to add some style to your web pages",
+    "stylesheets": [
+        "css/essential-css.css"
+    ]
 }

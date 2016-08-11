@@ -105,8 +105,15 @@ gulp.task('merge-html', () => {
 });
 
 gulp.task('images', () => {
-    return gulp.src('./src/*/img/**')
+    return gulp.src('./src/*/img/*')
         .pipe($.cache($.imagemin()))
+        .pipe(gulp.dest(DIST_DIR));
+});
+
+gulp.task('custom-css', () => {
+    return gulp.src('./src/*/css/*')
+        .pipe($.autoprefixer('last 2 version'))
+        .pipe($.cssnano())
         .pipe(gulp.dest(DIST_DIR));
 });
 
@@ -142,7 +149,8 @@ gulp.task('clean', () => {
 gulp.task('default', [
     'merge-html', 
     'merge-md', 
-    'images', 
+    'images',
+    'custom-css',
     'global-css', 
     'global-img', 
     'global-lib', 

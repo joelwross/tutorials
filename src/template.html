@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../lib/prism.css">
     <link rel="stylesheet" href="../css/main.css">
     <script defer src="../lib/prism.js"></script> 
+    {{#each meta.stylesheets}}
+    <link rel="stylesheet" href="{{this}}">
+    {{/each}}
 </head>
 <body>
     <div class="container">
