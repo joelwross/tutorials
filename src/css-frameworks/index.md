@@ -1,6 +1,6 @@
-In the [Essential CSS](../essential-css/) and [Responsive CSS](../responsive-css/) tutorials, you learned how to write style rules to change the appearance of your web pages. Although you could implement a entire site with only custom style rules, most professionals build upon a well-tested <span class="term">CSS framework</span> instead. The framework defines consistent and attractive formatting rules for all HTML elements, and defines several style classes you can use for common UI widgets (badges, alerts, cards, responsive navigation bars, tabs, drop-down buttons, tool tips and popovers, sliders, switches, carousels, etc.). You can then add your own custom rules on top of the framework to tweak the default framework formatting, or add your own UI widgets.
+In the [Essential CSS](../essential-css/) and [Responsive CSS](../responsive-css/) tutorials, you learned how to write style rules to change the appearance of your web pages. Although you could implement a entire site with only custom style rules, most professionals build upon a well-tested <span class="term">CSS framework</span> instead. The framework defines consistent and attractive formatting rules for all HTML elements, and defines several style classes you can use for common UI components (badges, alerts, cards, responsive navigation bars, tabs, drop-down buttons, tool tips and popovers, sliders, switches, carousels, etc.). You can then add your own custom rules on top of the framework to tweak the default framework formatting, or add your own UI components.
 
-A CSS framework is just a stylesheet with a bunch of rules that someone else wrote for you, and some accompanying JavaScript for the interactive widgets. There's nothing magic about it. You can look at the stylesheet and see all the rules that are defined in there, and it's all stuff you could have written yourself. But those rules have been crafted by professionals and tested on a wide array of browsers to ensure consistent results, so we might as well build on top of them.
+A CSS framework is just a stylesheet with a bunch of rules that someone else wrote for you, and some accompanying JavaScript for the interactive components. There's nothing magic about it. You can look at the stylesheet and see all the rules that are defined in there, and it's all stuff you could have written yourself. But those rules have been crafted by professionals and tested on a wide array of browsers to ensure consistent results, so we might as well build on top of them.
 
 ## Popular CSS Frameworks
 
@@ -198,6 +198,77 @@ With this markup, the first column consumes 4 grid units on small and medium scr
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 See the [Bootstrap grid system documentation](http://getbootstrap.com/css/#grid) for more details.
+
+## UI Components
+
+Besides the responsive grid system, Bootstrap also offers a host of useful [UI components](http://getbootstrap.com/components/). For example, adding a Bootstrap alert to your page requires this simple markup:
+
+```html
+<div class="alert alert-danger" role="alert">Danger Will Robinson, Danger!</div>
+```
+
+<div class="alert alert-danger">Danger Will Robinson, Danger!</div>
+
+The `role="alert"` attribute is included to help screen readers know that this element is something more than a generic `<div>` element. The `role` attribute is defined in the [Aria accessibility standard](https://www.w3.org/TR/wai-aria/roles#role_definitions), and it's good practice to add this attribute to elements that play a role that is different from what the element name normally suggests.
+
+To allow users to dismiss an alert, just extend your markup like this:
+
+```html
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Danger Will Robinson, Danger!
+</div>
+```
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Danger Will Robinson, Danger!
+</div>
+
+Just like the `role` attribute, the `aria-label` and `aria-hidden` attributes are defined in the Aria accessibility standard. The former provides a pronounceable label for the close button, and the latter tells the screen reader to ignore the `&times;` HTML entity, as it won't be able to describe it in any sensible way.
+
+Try experimenting with other [Bootstrap UI Components](http://getbootstrap.com/components/) using this CodePen. Just copy/paste the markup from Bootstrap's documentation to see what it creates. If you want more room and better editing features, click the "Edit in CodePen" link on the top-right.
+
+<p data-height="600" data-theme-id="dark" data-slug-hash="XKoyEN" data-default-tab="html,result" data-user="drstearns" data-embed-version="2" data-preview="true" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/XKoyEN/">Bootstrap UI Component Playground</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://assets.codepen.io/assets/embed/ei.js"></script>
+
+## Larger Application Components
+
+Bootstrap offers all kinds of simple UI components like these, but it also has some more complex ones that are useful in web application. For example, you can add a modal dialog to your page and open it from a button:
+
+```html
+<!-- button to open modal -->
+<p>
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Open Modal Dialog
+	</button>
+</p>
+
+<!-- modal dialog markup, hidden until opened -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				Hello World, this is a modal dialog!
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+<div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#demoModal">Open Modal Dialog</button></div>
+
+<div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">Modal title</h4></div><div class="modal-body">Hello World, this is a modal dialog!</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button></div></div></div></div>
+
+These application components are more useful when you add your own JavaScript, which you will learn how to do in later tutorials.
 
 ## Keep Learning
 
