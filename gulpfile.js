@@ -48,6 +48,11 @@ function mergeHTML(file, enc, cb) {
             + file.path + ': ' + err);
     }
 
+    //tutorial directory name == tutorial name
+    var tutorialName = path.basename(path.resolve(file.path, '..'));
+
+    meta.headerClass = meta.headerClass || tutorialName + '-header';
+
     var merged = template({
         meta: meta,
         content: file.contents.toString('utf8')
@@ -110,15 +115,9 @@ gulp.task('images', () => {
         .pipe(gulp.dest(DIST_DIR));
 });
 
-gulp.task('custom-css', () => {
-    return gulp.src('./src/*/css/*')
-        .pipe($.autoprefixer('last 2 version'))
-        .pipe($.cssnano())
-        .pipe(gulp.dest(DIST_DIR));
-});
-
 gulp.task('global-css', () => {
-    return gulp.src('./src/css/**')
+    return gulp.src(['./src/css/**', './src/*/css/*'])
+        .pipe($.concatCss('styles.css'))
         .pipe($.autoprefixer('last 2 version'))
         .pipe($.cssnano())
         .pipe(gulp.dest(DIST_DIR + '/css'));
@@ -150,7 +149,6 @@ gulp.task('default', [
     'merge-html', 
     'merge-md', 
     'images',
-    'custom-css',
     'global-css', 
     'global-img', 
     'global-lib', 

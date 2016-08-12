@@ -18,3 +18,9 @@
     top: 0;             /* positioned in top-right corner */
     right: 0;
 }
+
+@media (min-width: 768px) {
+    .essential-css-header {
+        background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0) 50%), url(../img/essential-css-header.jpg);
+    }
+}

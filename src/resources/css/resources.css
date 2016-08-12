@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+    .resources-header {
+        background-image: url(../img/resources-header.jpg); 
+    }
+}

@@ -14,20 +14,22 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../lib/prism.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <script defer src="../lib/prism.js"></script> 
     {{#each meta.stylesheets}}
     <link rel="stylesheet" href="{{this}}">
     {{/each}}
 </head>
 <body>
-    <div class="container">
-        <header class="page-header">
+    <header class="{{meta.headerClass}}">
+        <div class="container">
             <h1>{{meta.title}}</h1>
             {{#if meta.subtitle}}
-            <p class="lead">{{meta.subtitle}}</p>
+            <p class="subtitle">{{meta.subtitle}}</p>
             {{/if}}
-        </header>
+        </div>
+    </header>
+    <div class="container">
         <article>
             {{{content}}}
         </article>

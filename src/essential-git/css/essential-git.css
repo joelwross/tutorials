@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+    .essential-git-header {
+        background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0)), url(../img/essential-git-header.jpg);
+    }
+}

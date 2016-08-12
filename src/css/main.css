@@ -20,6 +20,24 @@ svg {
     fill: #333;
 }
 
+header {
+    background-image: linear-gradient(to right, #304050, #708090);
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+    margin-bottom: 20px;
+    padding-bottom: 0.5em;
+}
+
+header h1 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+header .subtitle {
+    font-size: 150%;
+}
+
 .term {
     font-weight: bold;
 }
@@ -33,3 +51,14 @@ svg {
     border: 1px dotted #DDD;
     padding: 5px;
 }
+
+@media (min-width: 768px) {
+    header h1 {
+        padding-top: 40px;
+    }
+
+    .contents-header {
+        background-image: url(../img/contents-header.jpg);
+    }
+}
+
