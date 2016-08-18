@@ -58,25 +58,25 @@ body {
 
 <p>On narrow screens content blocks should stack on top of each other, but on wider screens we should take advantage of the extra room and display at least some content blocks side-by-side. In the past, we used the <code>float</code> and <code>clear</code> properties to achieve multi-column layouts, but this technique was fraught with bugs due to browser inconsistencies. Thankfully, there is a newer standard specifically designed for multi-column layouts: Flexbox. </p>
 
-<div class="alert alert-warning">Note: the <a href="http://caniuse.com/#feat=flexbox">only browser that doesn't support flexbox is IE</a>, but Microsoft's new Edge browser does support it. If you must support IE users, you should use the grid system in one of the popular CSS Frameworks (Bootstrap, Material Design Lite, Materialize, etc.). We will learn about CSS frameworks next.</div>
+<div class="alert alert-warning">Note: the <a href="http://caniuse.com/#feat=flexbox">only browser that doesn't support flexbox is IE</a>, but Microsoft's new Edge browser does support it. If you must provide multi-column layout to IE users, you should use the grid system in one of the popular <a href="../css-frameworks/">CSS Frameworks</a> (Bootstrap, Material Design Lite, Materialize, etc.).</div>
 
-<p>Flexbox requires one element to act as the container element, and one element per column in your layout. To make a four-column layout, your HTML and CSS would be like this:</p>
+<p>Flexbox requires one element to act as the row element, and one element per column in your layout. To make a four-column layout, your HTML and CSS would be like this:</p>
 
 <pre><code class="language-html">
-&lt;div class="container"&gt;
-    &lt;div class="column"&gt;
+&lt;div class="flex-row"&gt;
+    &lt;div class="flex-column"&gt;
         &lt;h2&gt;Column 1&lt;/h2&gt;
         &lt;p&gt;...&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="column"&gt;
+    &lt;div class="flex-column"&gt;
         &lt;h2&gt;Column 2&lt;/h2&gt;
         &lt;p&gt;...&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="column"&gt;
+    &lt;div class="flex-column"&gt;
         &lt;h2&gt;Column 3&lt;/h2&gt;
         &lt;p&gt;...&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="column"&gt;
+    &lt;div class="flex-column"&gt;
         &lt;h2&gt;Column 4&lt;/h2&gt;
         &lt;p&gt;...&lt;/p&gt;
     &lt;/div&gt;
@@ -87,21 +87,21 @@ body {
     box-sizing: border-box; /* include padding and border is size calcs */
 }
 
-.container {
+.flex-row {
     display: flex; /* start a flexbox */
 }
 
-.column {
+.flex-column {
     flex-grow: 1;  /* all columns equal size */
     padding: 0 0.25em; /* a little padding between columns */
 }</code></pre>
 
-<p>This is what it looks like in the browser. Feel free to play around with the HTML or CSS to see what effects it has For example, try adding another <code>&lt;div class="column"&gt;</code> to the markup and notice how the flexbox just shrinks the existing ones down to make room for the new one. If you're feelign squeezed on space, click the "Edit on CodePen" link on the top right.</p>
+<p>This is what it looks like in the browser. Feel free to play around with the HTML or CSS to see what effects it has For example, try adding another <code>&lt;div class="flex-column"&gt;</code> to the markup and notice how the flexbox just shrinks the existing ones down to make room for the new one. If you're feeling squeezed on space, click the "Edit on CodePen" link on the top right.</p>
 
 <p data-height="300" data-theme-id="dark" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<p>By default, browsers will apply sizes like <code>100%</code> to just the content within a box and not the padding or borders on the box. But in our case, we want the column size to also include the padding we put on the left and right; otherwise, it might wrap to the next line. To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
+<p>By default, browsers will apply sizes like <code>100%</code> to just the content within a box and not the padding or borders on the box. But in our case, we want the column size to also include the padding we put on the left and right; otherwise, it might wrap to the next line. To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.flex-column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
 
 <p>This will create a four column layout on all screens, but we can make this responsive by adding some <code>@media</code> rule blocks, and adjusting a few properties. Let's start by making the columns stacked on top of each other on small phone screens, but side-by-side on wider screens:</p>
 
@@ -110,12 +110,12 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.flex-row {
     display: flex;
     flex-wrap: wrap; /* wrap columns to next line if needed */
 }
 
-.column {
+.flex-column {
     flex-grow: 1;
     flex-basis: 100%; /* columns take up whole line */
     padding: 0 0.25em;
@@ -123,11 +123,8 @@ body {
 
 /* rules for screens 780px and wider */
 @media (min-width: 780px) {
-    .container {
-        flex-wrap: nowrap /* stop wrapping columns */
-    }
-    .column {
-        flex-basis: auto; /* columns sized equally */
+    .flex-column {
+        flex-basis: 25%; /* columns side-by-side */
     }
 }
 </code></pre>
@@ -137,11 +134,9 @@ body {
 <p data-height="550" data-theme-id="dark" data-slug-hash="GqYAVp" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/GqYAVp/">Flexbox Responsive</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<p>The <code>flex-basis</code> property controls how much width each column takes up by default, so setting it to 100% causes the column to stretch to the entire width of the container. Because we set <code>flex-wrap</code> to <code>wrap</code>, the following columns wrap to the next line, creating a stacked one-column layout.</p>
+<p>The <code>flex-basis</code> property controls how much width each column takes up by default, so setting it to 100% causes the column to stretch to the entire width of the row. Because we set <code>flex-wrap</code> to <code>wrap</code>, the following columns wrap to the next line, creating a stacked one-column layout.</p>
 
-<p>On screens <code>780px</code> and wider, we tell the flexbox to stop wrapping and size all the columns equally. This gives us a layout where all four columns are side-by-side on the same line.</p>
-
-<p>We could achieve the same result by setting <code>flex-basis: 25%</code> on the columns, and eliminating the <code>flex-wrap: nowrap</code>. But that assumes you have only four columns&mdash;if you added another column to your HTML, the fifth column would wrap to the next line. By setting <code>flex-basis: auto</code> and <code>flex-wrap: nowrap</code>, we ensure that all columns will be on the same line, regardles of how many there are. Try adjusting the CodePen above to see the difference.</p>
+<p>On screens <code>780px</code> and wider, we set <code>flex-basis</code> to 25%, so the four columns will sit side-by-side on the same line.</p>
 
 <p>We can then extend this to support a two-by-two layout on medium screens:</p>
 
@@ -150,30 +145,27 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.flex-row {
     display: flex;
     flex-wrap: wrap; /* wrap columns to next line if needed */
 }
 
-.column {
+.flex-column {
     flex-grow: 1;
     flex-basis: 100%; /* columns take up whole line */
 }
 
 /* rules for screens 480px and wider */
 @media (min-width: 490px) {
-    .column {
+    .flex-column {
         flex-basis: 50%; /* columns take up half the line */
     }
 }
 
 /* rules for screens 780px and wider */
 @media (min-width: 780px) {
-    .container {
-        flex-wrap: nowrap /* stop wrapping columns */
-    }
-    .column {
-        flex-basis: auto; /* columns sized equally */
+    .flex-column {
+        flex-basis: 25%;
     }
 }
 </code></pre>
@@ -181,9 +173,45 @@ body {
 <p data-height="656" data-theme-id="dark" data-slug-hash="qNJAEG" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/qNJAEG/">Flexbox Responsive 2</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<p>When we adjust <code>flex-basis</code> to <code>50%</code>, the columns now take up half the row width, allowing two columns to sit side-by-side on each line on screens 490px to 780px. Adjusting the property to <code>auto</code> causes the browser to give equal width to each column so that they all end up side-by-side on the same line. We also turn off wrapping to ensure that all the columns remain on one line.</p>
+<p>When we adjust <code>flex-basis</code> to <code>50%</code>, the columns now take up half the row width, allowing two columns to sit side-by-side on each line on screens 490px to 780px. On wider screens <code>flex-basis</code> goes to <code>25%</code>, giving you a four-by-one layout.</p>
+
+<h2>Responsive Container Elements</h2>
+
+<p>By default the <code>&lt;body&gt;</code> element will stretch to be as wide as the browser window (also called the "viewport"), and all block elements within the body will also stretch to be as wide as the body. This works well on narrower screens but it creates ridiculously wide layouts and long line-lengths on very wide desktop monitors, making your site difficult to read. It's common to have background images and colors stretch "wall-to-wall" but the main text content is often constrained in width so that it remains easy to read on all sizes of screens.</p>
+
+<p>This is typically achieved by putting the main content of the page or a section in another element that is often called a "container." These container elements are just <code>&lt;div&gt;</code> elements with a style class name like <code>container</code>. We can then create a CSS rule that constrains the width of these elements.</p>
+
+<p>For example, this is how the popular CSS Framework <a href="http://getbootstrap.com/css/#overview-container">Bootstrap</a> defines their container class rules:</p>
+
+<pre><code class="language-css">
+.container {
+    margin-left: auto; /* keeps the element horizontally centered */
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+</code></pre>
+
+<p>Setting <code>margin-left</code> and <code>margin-right</code> to <code>auto</code> will ensure that the container element remains horizontally centered when its width begins to be constrained, which happens on screens wider than <code>768px</code>. They increase the <code>width</code> of the element as the screen size increases, but only up to a point: the largest it will ever grow is <code>1170px</code> on screens wider than <code>1200px</code>.</p>
+
+<p>To experience what this looks like, just resize your browser window. This site was built using Bootstrap, and the tutorial content is inside a <code>&lt;div class="container"&gt;</code> element. You'll notice that it will grow in size as you make the screen wider, but only up to a maximum of <code>1170px</code>. This keeps the line-lengths reasonable so that they are easy to read even when the browser window is very wide.</p>
 
 <h2>Keep Learning</h2>
 
-<p>This is just a taste of what flexbox can do. See Chris Coyier's <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> for more details. Then play <a href="http://flexboxfroggy.com/">Flexbox Froggy</a> to test your understanding of flexbox layout!</p>
+<p>This is just a taste of what media rules and flexbox can do. See Chris Coyier's <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> for more details. Then play <a href="http://flexboxfroggy.com/">Flexbox Froggy</a> to test your understanding of flexbox layout!</p>
 
