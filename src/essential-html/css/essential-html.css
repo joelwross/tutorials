@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
     .essential-html-header {
-        background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(../img/header.jpg);
+        background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(../img/header.jpg);
         color: #FFF;
     }
 }

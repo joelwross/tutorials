@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/drstearns/tutorials#readme",
   "dependencies": {
+    "browser-sync": "^2.14.0",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",

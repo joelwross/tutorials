@@ -6,6 +6,7 @@ const showdown = require('showdown');
 const through = require('through2');
 const del = require('del');
 const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
 const $ = require('gulp-load-plugins')();
 
 const DIST_DIR = './dist';
@@ -120,7 +121,8 @@ gulp.task('global-css', () => {
         .pipe($.concatCss('styles.css'))
         .pipe($.autoprefixer('last 2 version'))
         .pipe($.cssnano())
-        .pipe(gulp.dest(DIST_DIR + '/css'));
+        .pipe(gulp.dest(DIST_DIR + '/css'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('global-img', () => {
@@ -145,7 +147,7 @@ gulp.task('clean', () => {
     return del(DIST_DIR);
 });
 
-gulp.task('default', [
+gulp.task('build', [
     'merge-html', 
     'merge-md', 
     'images',
@@ -154,3 +156,15 @@ gulp.task('default', [
     'global-lib', 
     'index'
 ]);
+
+gulp.task('watch', ['build'], () => {
+    browserSync.init({
+        server: DIST_DIR,
+        files: DIST_DIR
+    });
+    gulp.watch(['./src/css/**', './src/*/css/*'], ['global-css']);
+    gulp.watch('./src/*/*.md', ['merge-md']);
+    gulp.watch('./src/*/*.html', ['merge-html']);
+});
+
+gulp.task('default', ['build']);

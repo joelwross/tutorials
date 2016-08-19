@@ -54,7 +54,8 @@ header .subtitle {
 
 @media (min-width: 768px) {
     header h1 {
-        padding-top: 40px;
+        font-size: 70px;
+        padding-top: 60px;
     }
 
     .contents-header {
