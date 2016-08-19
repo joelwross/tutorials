@@ -8,11 +8,11 @@
 
 <ul>
 
-    <li><strong>Layout</strong>: Blocks of content should stack on top of each other on narrow screens, but sit side-by-side on wider screens. You can also use the <code>max-width</code> property to constrain the overall width of your content so that it doesn't stretch to ridiculous line lengths on super-wide monitors. Content fixed to the viewport (<code>layout: fixed</code>) should be kept to a minimum on small screens, as it reduces the amount of scrollable screen real-estate.</li>
+    <li><strong>Layout</strong>: Blocks of content should typically stack on top of each other on narrow screens, but sit side-by-side on wider screens. You can also use the <code>width</code> or <code>max-width</code> properties to constrain the width of your content so that it doesn't stretch to ridiculous line lengths on super-wide monitors. Content fixed to the viewport (<code>layout: fixed</code>) should be kept to a minimum on small screens, as it reduces the amount of scrollable screen real-estate.</li>
 
-    <li><strong>Media</strong>: Large images and video look great on large monitors, but typically don't work as well on small screens. They also take much longer to download over slow mobile links. Consider using background colors instead of background images on mobile, or use lower-resolution images so that they download faster.</li>
+    <li><strong>Media</strong>: Large images and video look great on large monitors, but typically don't work as well on small screens. They also take much longer to download over slow mobile links. Consider using background colors or linear gradient fills instead of background images on mobile; or use lower-resolution images so that they download faster.</li>
 
-    <li><strong>Fonts</strong>: Font sizes may need to be adjusted so that text remains readable as the screen size changes.</li>
+    <li><strong>Fonts</strong>: Font sizes may need to be adjusted so that text remains readable as the screen size changes. You can also increase the size of headings or callout text on wider monitors to take advantage of the extra room.</li>
 
     <li><strong>Navigation</strong>: Site navigation links take up a lot of room on small screens and may end up wrapping to multiple lines. Keep the site navigation hidden on small screens and show it only when the user taps a menu icon (colloquially known as the &quot;hamburger icon&quot;). Most CSS frameworks (which we will learn about next) provide some kind of collapsible navigation on mobile.</li>
 
@@ -56,9 +56,9 @@ body {
 
 <h2>Flexbox</h2>
 
-<p>On narrow screens content blocks should stack on top of each other, but on wider screens we should take advantage of the extra room and display at least some content blocks side-by-side. In the past, we used the <code>float</code> and <code>clear</code> properties to achieve multi-column layouts, but this technique was fraught with bugs due to browser inconsistencies. Thankfully, there is a newer standard specifically designed for multi-column layouts: Flexbox. </p>
+<p>On narrow screens content blocks should typically stack on top of each other, but on wider screens we should take advantage of the extra room and display at least some content blocks side-by-side. In the past, we used the <code>float</code> and <code>clear</code> properties to achieve multi-column layouts, but this technique was fraught with bugs due to browser inconsistencies. Thankfully, there is a newer standard specifically designed for multi-column layouts: Flexbox. </p>
 
-<div class="alert alert-warning">Note: the <a href="http://caniuse.com/#feat=flexbox">only browser that doesn't support flexbox is IE</a>, but Microsoft's new Edge browser does support it. If you must provide multi-column layout to IE users, you should use the grid system in one of the popular <a href="../css-frameworks/">CSS Frameworks</a> (Bootstrap, Material Design Lite, Materialize, etc.).</div>
+<div class="alert alert-warning">The <a href="http://caniuse.com/#feat=flexbox">only browser that doesn't support flexbox is IE</a>, but Microsoft's new Edge browser does support it. On IE, your content will still display, but it will always be stacked and never side-by-side. If you must provide multi-column layout to IE users, you should use the grid system in one of the popular <a href="../css-frameworks/">CSS Frameworks</a> (Bootstrap, Material Design Lite, Materialize, etc.).</div>
 
 <p>Flexbox requires one element to act as the row element, and one element per column in your layout. To make a four-column layout, your HTML and CSS would be like this:</p>
 
@@ -101,9 +101,15 @@ body {
 <p data-height="300" data-theme-id="dark" data-slug-hash="vKVgrB" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/vKVgrB/">Flexbox</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-<p>By default, browsers will apply sizes like <code>100%</code> to just the content within a box and not the padding or borders on the box. But in our case, we want the column size to also include the padding we put on the left and right; otherwise, it might wrap to the next line. To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.flex-column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
+<h3>Box Sizing</h3>
 
-<p>This will create a four column layout on all screens, but we can make this responsive by adding some <code>@media</code> rule blocks, and adjusting a few properties. Let's start by making the columns stacked on top of each other on small phone screens, but side-by-side on wider screens:</p>
+<p>By default, browsers will apply widths like <code>50%</code> to just the content within a box and not the padding or borders on the box. But when we start creating multi-column layouts, we need the column size to also include the padding we put on the left and right; otherwise, the overall size of the columns will add up to more than the viewport width, and the last column will wrap to the next line.</p>
+
+<p>To force the browser to take the padding into consideration when sizing the column, we set <code>box-sizing</code> to <code>border-box</code>. This ensures that the content plus the padding will be sized to 100% of the containing element. Here we use the <code>*</code> selector, which selects every element in the page, so this setting will apply to all elements. We could be more targeted and set <code>box-sizing</code> only on the <code>.flex-column</code> rule, but this setting is what you want most of the time on all elements when doing multi-column layouts, so it's common practice to just apply it to all elements using the <code>*</code> selector.</p> 
+
+<h3>Responsive Flexbox</h3>
+
+<p>The above example creates a four column layout on all screens, but we can make this responsive by adding some <code>@media</code> rule blocks, and adjusting a few properties. Let's start by making the columns stack on top of each other on small phone screens, but sit side-by-side on wider screens:</p>
 
 <pre><code class="language-css">
 * {
@@ -129,7 +135,7 @@ body {
 }
 </code></pre>
 
-<p>Here's a live preview. Try hiding and showing the CSS panel to simulate a wider and more narrow screen width. Or click the "Edit on CodePen" to open it in a new window that you can more easily resize.</p>
+<p>Here's a live preview. Try hiding and showing the CSS panel to simulate a wider and more narrow screen width. Or click the "Edit on CodePen" to open it in a new window that you can more easily resize. If you are on a small phone screen, you can reduce the <code>min-width</code> setting.</p>
 
 <p data-height="550" data-theme-id="dark" data-slug-hash="GqYAVp" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/GqYAVp/">Flexbox Responsive</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -209,7 +215,7 @@ body {
 
 <p>Setting <code>margin-left</code> and <code>margin-right</code> to <code>auto</code> will ensure that the container element remains horizontally centered when its width begins to be constrained, which happens on screens wider than <code>768px</code>. They increase the <code>width</code> of the element as the screen size increases, but only up to a point: the largest it will ever grow is <code>1170px</code> on screens wider than <code>1200px</code>.</p>
 
-<p>To experience what this looks like, just resize your browser window. This site was built using Bootstrap, and the tutorial content is inside a <code>&lt;div class="container"&gt;</code> element. You'll notice that it will grow in size as you make the screen wider, but only up to a maximum of <code>1170px</code>. This keeps the line-lengths reasonable so that they are easy to read even when the browser window is very wide.</p>
+<p>To experience what this looks like, just resize your browser window. This site was built using Bootstrap, and the tutorial content is inside a <code>&lt;div class="container"&gt;</code> element. You'll notice that the text will grow in size as you make the screen wider, but only up to a maximum of <code>1170px</code>. This keeps the line-lengths reasonable so that they are easy to read even when the browser window is very wide. But the header background image always stretches wall-to-wall.</p>
 
 <h2>Keep Learning</h2>
 
