@@ -3,6 +3,10 @@
     margin-left: 1em;
 }
 
+.clear-float {
+    clear: both;
+}
+
 .image-container {
     width: 300px;       /* container width is set to 300 pixels */
     max-width:50%;

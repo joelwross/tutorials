@@ -20,7 +20,7 @@
 
 <p>You can add CSS rules to your page in three different ways, but the best practice is to use a separate CSS stylesheet file, and link that to your HTML page. These stylesheet files are typically put into a <code>css/</code> subdirectory to keep them separate from all your HTML pages.</p>
 
-<p>For example, say you wanted to create one stylesheet for your <code>index.html</code> page. Create a new directory named <code>css</code> next to your <code>index.html</code> file. Then create a new file in that new <code>css/</code> directory named <code>main.css</code>. The resulting file structure should be like this:</p>
+<p>For example, say you wanted to create one stylesheet for your <code>index.html</code> page that you created during the <a href="../essential-html/">Essential HTML tutorial</a>. Create a new directory named <code>css</code> next to your <code>index.html</code> file. Then create a new file in that new <code>css/</code> directory named <code>main.css</code>. The resulting file structure should be like this:</p>
 <pre><code>
 index.html
     css/
@@ -36,9 +36,11 @@ index.html
 &lt;/head&gt;
 </code></pre>
 
+<p>The name you use for your CSS file can be anything you want. It just needs to match what you put in the <code>href</code> attribute of the <code>&lt;link&gt;</code> element.</p>
+
 <h2>Core CSS Concepts</h2>
 
-<p>Because CSS is declarative and rule based, it's really easy to learn. There are only a few core concepts that you need to understand. The rest involves looking through the <a href="http://www.w3schools.com/cssref/default.asp">numerous formatting properties</a> to discover the one you need to achieve a particular effect.</p>
+<p>Because CSS is declarative and rule based, it's really easy to learn. There are only a few core concepts that you need to understand. The rest involves looking through the <a href="http://www.w3schools.com/cssref/default.asp">numerous formatting properties</a> to discover the set you need to achieve a particular effect.</p>
 
 <h3>Basic Syntax</h3>
 
@@ -96,7 +98,7 @@ p {
 
 <p>Note the <code>.</code> character at the start of the name. That tells the browser that what follows is a class name and not an element name. But remember that the <code>.</code> character is used only in the CSS rule; in your HTML <code>class</code> attribute, you use the class name without the preceding <code>.</code> character.</p>
 
-<p>Multiple elements within your page can all share common class names, so you can define style classes for common UI elements that you use in several places. Define a rule in your CSS using a class selector and the formatting properties you want, and then add that class name to the <code>class</code> attribute on any HTML element in your page that should be styled using those formatting properties.</p>
+<p>Multiple elements within your page can all share common class names, so you can define style classes for common UI components that you use in several places. Define a rule in your CSS using a class selector and the formatting properties you want, and then add that class name to the <code>class</code> attribute on any HTML element in your page that should be styled using those formatting properties.</p>
 
 <p>CSS rules are also additive. If you attach multiple style classes to the same element (like we did above), the browser will combine all formatting properties from all style rules in the order that they are defined. So in the case above, because the paragraph has both the <code>alert</code> and <code>alert-warning</code> style classes, the browser will combine all formatting properties from the <code>.alert</code> and <code>.alert-warning</code> rules and apply all of them to the element. If the same property is defined in both rules, the later one will override the earlier one.</p>
 
@@ -112,7 +114,7 @@ p {
 }
 </code></pre>
 
-<p>Since the <code>id</code> attribute is commonly used to create intra-page hyperlinks (i.e., links that scroll the page to a particular section of the page), id selectors are a handy way to style those elements.</p>
+<p>Since the <code>id</code> attribute is commonly used to create bookmark hyperlinks (i.e., links that scroll the page to a particular section of the page), id selectors are a handy way to style those elements.</p>
 
 <h4>Descendant Selectors</h4>
 
@@ -120,6 +122,7 @@ p {
 
 <p>For example, say you wanted to style all paragraphs within the <code>&lt;header&gt;</code> element, but not the other paragraph elements that exist elsewhere in the page. You can select just those paragraph elements using a selector like this:</p>
 <pre><code class="language-css">
+/* selects only the p elements contained withing header elements */
 header p {
     ...
 }
@@ -128,6 +131,9 @@ header p {
 <p>The syntax is a space-delimited list of selectors, so you can use element or class selectors at each level. You can also have as many levels as you want, but it's best practice to use no more than two or three. For example, to target all elements with the style class <code>.logo</code> that exist inside a paragraph that exists inside the header, your selector would look like:</p>
 
 <pre><code class="language-css">
+/* selects elements with class="logo" 
+contained within p elements
+contained within header elements */
 header p .logo {
     ...
 }
@@ -199,7 +205,7 @@ input:focus {
     <li>If a later rule selects the same element and provides a different setting for a property already set by an earlier rule, the later rule's setting overrides.</li>
 </ol>
 
-<p>This simple explanation is accurate in most cases, but there are a few cases where it isn't quite right. The CSS standard gives higher priority to some selectors over others, making the order in which they were defined irrelevant in some cases. The concept is known as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Selector Specificity</a>, and you may run into cases where this becomes important. If you notice that one of your style rules is not being applied, despite your syntax being correct, check your browser's developer tools to see if your rule is being overridden by a more specific rule in an earlier stylesheet. The adjust your rule so that it has the same or greater specificity.</p>
+<p>This simple explanation is accurate in most cases, but there are a few cases where it isn't quite right. The CSS standard gives higher priority to some selectors over others, making the order in which they were defined irrelevant in some cases. The concept is known as <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Selector Specificity</a>, and you may run into cases where this becomes important. If you notice that one of your style rules is not being applied, despite your syntax being correct, check your browser's developer tools to see if your rule is being overridden by a more specific rule in an earlier stylesheet. Then adjust your rule so that it has the same or greater specificity.</p>
 
 <h3>Colors</h3>
 
@@ -266,11 +272,11 @@ p {
         </tr>
         <tr>
             <td>px</td>
-            <td>pixels, which are defined as 1/96 of an inch, regardless of how dense the pixels are on the current display</td>
+            <td>pixels, which are defined as <sup>1</sup>&frasl;<sub>96</sub> of an inch, regardless of how dense the pixels are on the current display</td>
         </tr>
         <tr>
             <td>pt</td>
-            <td>points, which are defined as 1/72 of an inch</td>
+            <td>points, which are defined as <sup>1</sup>&frasl;<sub>72</sub> of an inch</td>
         </tr>
     </tbody>
 </table>
@@ -286,11 +292,11 @@ p {
     <tbody>
         <tr>
             <td>em</td>
-            <td>The height of the current font</td>
+            <td>The height of the current element's font</td>
         </tr>
         <tr>
             <td>rem</td>
-            <td>The height of the base font (i.e., the font used on the root <code>html</code> or <code>body</code> element)</td>
+            <td>The height of the root element's font (i.e., the font used on the root <code>html</code> or <code>body</code> element)</td>
         </tr>
         <tr>
             <td>%</td>
@@ -328,6 +334,48 @@ p {
 
 <p>But block or inline rendering is just a default setting for these elements. We can change that using the CSS <code>display</code> property. You can set this to <code>block</code>, <code>inline</code>, or even <code>none</code> to hide the element completely. There are also several other more-specific settings, the most notable being <code>inline-block</code>, which treats the element as inline, but allows you to add padding around it.</p>
 
+<p>For example, unordered list items are block elements by default, but we can change that using CSS so that they appear inline instead. This is commonly done with navigation bars, which contain an unordered list of links:</p>
+
+<pre><code class="language-html">
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;order.html&quot;&gt;Order&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<pre><code class="language-css">
+nav {
+    background-color: #A53C30;
+}
+
+nav ul {
+    /* remove default padding */
+    padding-left: 0;
+}
+
+nav li {
+    list-style: none; /* no bullets */
+    display: inline;  /* inline instead of block */
+}
+
+nav a {
+    color: #FFFFFF;    
+    display: inline-block; /* allows padding */
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+</code></pre>
+
+<p>By setting <code>display: inline</code> on the <code>nav li</code> elements, they will now appear side-by-side on the same line instead of on top of each other on successive lines. Note also the use of <code>display: inline-block</code> on the <code>nav a</code> elements. Recall that <code>a</code> elements are inline by default, and inline elements can't have extra padding or margins. By changing the dsiaply to <code>inline-block</code>, these elements will still layout inline, but we can also add some extra padding around the content.</p>
+
+<p>Here is what it looks like in the browser. Try adjusting the various style properties to see how they effect the results:</p>
+
+<p data-height="500" data-theme-id="dark" data-slug-hash="qNwoPO" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/qNwoPO/">Navbar</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 <h4>Floats</h4>
 
 <p>Both block and inline elements still stay within the overall page flow, meaning that they appear below (or to the right) of elements defined before them, and above (or to the left) of elements defined after them. But we can also pop elements out of the page flow in a few different ways.</p>
@@ -341,11 +389,11 @@ p {
 }
 </code></pre>
 
-<p>This removes elements with the style class <code>.floated-image-right</code> from the normal page flow, shoves them to the right of their containing elements, and allows the rest of the content below them to &quot;float&quot; up around them. It looks like this:</p>
+<p>This removes elements with the style class <code>.floated-image-right</code> from the normal page flow, shoves them to the right of their containing elements, and allows the rest of the content below them to "float" up around them. It looks like this:</p>
 
 <p><img src="img/bunny.jpg" class="floated-image-right image-container" alt="cute bunny floated to the right">This text is floating upward and wrapping around the image on the right. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptates consequuntur dicta sed repellendus veniam enim beatae unde. Asperiores iure voluptatem tempora possimus culpa totam odio vel ipsa odit rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam, quisquam impedit consectetur voluptatum perferendis sit nobis ab repudiandae illo sequi rerum vitae molestias quas vero ut corrupti iusto error? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias magnam qui animi. Mollitia iste, temporibus distinctio dolore, nemo tempora aspernatur quos dolor laudantium nam architecto incidunt soluta minus neque exercitationem.</p>
 
-<p style="clear:both;">You can float images to the right or left. The content below will continue to float upwards until one of those later elements &quot;clears&quot; the float (such as this element). You can clear the float using the CSS <code>clear</code> property.</p>
+<p class="clear-float">You can float images to the right or left. The content below will continue to float upwards until one of those later elements &quot;clears&quot; the float (such as this element). You can clear the float using the CSS <code>clear</code> property.</p>
 <pre><code class="language-css">
 .clear-float {
     clear: both;
@@ -354,7 +402,12 @@ p {
 
 <p>An element with the <code>clear</code> property set will always appear below the floated element, on a new line.</p>
 
-<h4>Fixed and Absolute Position</h4>
+<p>Following is a live example. Try setting the <code>float</code> property to <code>none</code> or <code>left</code> to see how it affects the layout.</p>
+
+<p data-height="446" data-theme-id="dark" data-slug-hash="EyJEdj" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/EyJEdj/">Floats</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h4>Fixed Positioning</h4>
 
 <p>We can also use the <code>position</code> property to pop elements out of the normal page flow. We can use this property to make an element fixed with respect to the browser window (i.e., so that it doesn't scroll with the page), or to position the element absolutely within another element.</p>
 
@@ -371,6 +424,11 @@ nav {
 </code></pre>
 
 <p>Once you set <code>position: fixed</code>, you must tell the browser where the element should be fixed and how wide or tall it should be. Here we use <code>top</code> and <code>left</code> to anchor the element to the top-left corner of the browser window, and set the <code>width</code> property to <code>100%</code> to make it stretch across the entire window width. You can instead use <code>right</code> and <code>bottom</code> and <code>height</code> to anchor the element to any side of the browser window.</p>
+
+<p data-height="364" data-theme-id="dark" data-slug-hash="WxWzYa" data-default-tab="css,result" data-user="drstearns" data-embed-version="2" ata-editable="true" class="codepen">See the Pen <a href="http://codepen.io/drstearns/pen/WxWzYa/">Navbar Fixed</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h4>Absolute Positioning</h4>
 
 <p><code>position: fixed</code> fixes the element with respect to the entire browser window, but we can also position an element absolutely with respect to another containing element. For example, say we wanted to place an image in the upper-left corner of another image—like this:</p>
 
