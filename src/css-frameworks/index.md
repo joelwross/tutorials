@@ -26,7 +26,7 @@ The other popular Material Design implementation is [Materialize](http://materia
 
 ## Adding a Framework to your Page
 
-Each framework has a getting started page that describes your various options for adding the framework to your HTML page. Nearly all of them will let you link to their production files on a Content Delivery Network (CDN), download them as a zip file, or add them to your project via a package manager like `npm` or `bower`. Each method has its benefits and drawbacks.
+Each framework has a "getting started" page that describes your various options for adding the framework to your HTML page. Nearly all of them will let you link to their production files on a Content Delivery Network (CDN), download them as a zip file, or add them to your project via a package manager like `npm` or `bower`. Each method has its benefits and drawbacks.
 
 ### Linking to a CDN
 
@@ -47,9 +47,9 @@ Linking to a CDN is a very easy option that has several benefits. The first is *
 
 Simplicity is one benefit, but **download speed** is another. Content Delivery Networks are a set of web servers that can deliver commonly-requested content very quickly all over the world. CDNs replicate their content to machines in several regions of the world, and use dynamic Domain Name Service (DNS) resolution to steer users to the machine nearest them. So a user in Australia might download the Bootstrap CSS from a server located in Singapore, while a user in France might get the same CSS file from a server located in Ireland. Although it often seems like the Internet is instantaneous, dragging files halfway around the world is still relatively slow. If the files are large, it can create a noticeable delay.
 
-CDNs also increase perceived performance because the requested URL will be the same across various web sites that use the same file. The first time a user visits a site that uses this same framework, the CDN tells the browser that it can cache the files for a particular amount of time. The browser can also ask for the file content only if the file has been modified since the last time the browser downloaded it. Because the URLs are the same between sites, it's very possible that a first-time user to your site has already downloaded your CSS framework files (especially if you use a popular framework like Bootstrap), and thus your site can render much faster.
+Another reason that CDNs increase download performance is **browser caching**. If multiple sites all use the CDN version of Bootstrap, then the browser only has to download that file the first time you visit one of those sites. The browser can then reuse the previously downloaded file for all other sites that link to the same URL. With popular frameworks like Bootstrap, it's highly likely that your user has already visited a site that links to Bootstrap's CDN version, and thus the Bootstrap CSS and JavaScript are already in the user's browser cache.
 
-A third benefit is **dynamic patching**. If the developers of your framework discover a bug that can be patched without breaking existing code, they can re-release the patched file to the CDN, and your users' will automatically pick it up the next time they visit your site.
+Another benefit is **dynamic patching**. If the developers of your framework discover a bug that can be patched without breaking existing code, they can re-release the patched file to the CDN, and your users' will automatically pick it up the next time they visit your site.
 
 The only drawback of linking to a CDN is that it won't work when you are offline. If you commonly do your development offline, or if you are building a web application that is meant to run offline, you must download the CSS framework files into your project directory using one of the other two methods.
 
@@ -61,7 +61,7 @@ A second potential benefit is that framework sites often let you customize the c
 
 A third benefit is realized if you use the [Sass](http://sass-lang.com/) or [Less](http://lesscss.org/) CSS pre-compilers. These tools extend the CSS syntax to include features found in most other programming languages: variables, functions, inheritance, includes, mix-ins, etc. Most CSS frameworks are built using one of these two pre-compilers, and their **source files are commonly included in the downloaded zip**. You can then refer to these source files directly in your own Sass or Less code, including only the parts of the framework you actually plan on using. You can also override their standard fonts, colors, sizes, etc., simply by resetting their variables.
 
-There are two main drawbacks to this method. First, it **adds large framework files to your code repository** that could easily be downloaded from the web as needed. Second, these **zips typically don't include other libraries that the framework depends upon**. For example, Bootstrap's JavaScript library requires the jQuery library, but that's not included in their distribution zip file, as they want you to load the most recent version. To eliminate both of these drawbacks, use a package manager.
+There are two main drawbacks to this method. First, it **adds large framework files to your code repository** that could easily be downloaded from the web as needed. Second, these **zips typically don't include other libraries that the framework depends upon**. For example, Bootstrap's JavaScript library requires the jQuery library, but that's not included in their distribution zip file, as they don't want to have to update their own zip every time jQuery creates a new release. To eliminate both of these drawbacks, use a package manager.
 
 ### Using a Package Manager
 
@@ -96,17 +96,21 @@ This will download both the Bootstrap and jQuery packages (because Bootstrap dep
 <script defer src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 ```
 
+Note that the URLs in the `href` attributes are no longer absolute URLs pointing to a CDN. Instead they are relative URLs pointing to a sub-directory named `bower_components`. This directly will need to be on your web server so that the server can send these files to the user's browser. 
+
 When new developers join your project, they can quickly install all the packages listed in the `bower.json` file, as well as all of their dependencies, using this one command:
 
 ```bash
 $ bower install
 ```
 
+Because this simple command will install the packages on-demand, it's customary to add the `bower_components` directory to your `.gitignore` file. That way the files in that directory won't be added to your repository. The only exception to this rule is if you are using GitHub pages to host your site. If so, the `bower_components` directory must be added to your repo so that GitHub pages can serve the files to the browser.
+
 You can also use `bower` to upgrade packages, or remove them from your project. See the [bower documentation](https://bower.io/docs/api/) for more details.
 
 ### Which is Best? CDN or Download?
 
-If you ask a group of developers which is the better approach&mdash;linking to a CDN or downloading via a package manager&mdash;you'll probably start a very heated debate. It's kind of like the [spaces vs tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI) debate. Each method has its benefits and drawbacks, and neither option is clearly superior to the other. But choose you must, and your choice should be something you stick with. The one thing you don't want to do is mix the two approaches in one project.
+If you ask a group of developers which is the better approach&mdash;linking to a CDN or downloading via a package manager&mdash;you'll probably start a very heated debate. It's kind of like the [spaces *v.* tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI) debate. Each method has its benefits and drawbacks, and neither option is clearly superior to the other. But choose you must, and your choice should be something you stick with. The one thing you don't want to do is mix the two approaches in one project.
 
 If you are new to web development and can't decide which approach to use, link to the CDN version. It's simple and the lack of offline support probably won't affect you much.
 
@@ -136,7 +140,8 @@ The number of grid units any given element consumes is specified using specially
 	</div>
 </div>
 ```
-In Bootstrap, grids should always be put inside an element with `class="container"` or `class="container-fluid"`. Both of these style classes add a little padding to the left and right, and the `container` class sets the `max-width` property so that it doesn't grow ridiculously wide on large desktop monitors.
+
+In Bootstrap, grids should always be put inside an element with `class="container"` or `class="container-fluid"`. Both of these style classes add a little padding to the left and right, and the `container` class sets the `width` property so that it doesn't grow ridiculously wide on large desktop monitors.
 
 The `<div class="row">` element starts a new row, and each direct child `<div>` within that row element defines a new column. The style class `col-xs-4` tells Bootstrap that the element should consume 4 grid units on extra-small screens and larger (essentially, all screens), so all three of those `<div>` elements will appear side-by-side on all screen sizes. Here's what it looks like in the browser:
 
@@ -164,7 +169,7 @@ That's handy, but the real power comes when you want that layout to respond to t
 </div>
 ```
 
-Note that the `col-xs-4` classes became `col-sm-4`. By default, the `<div>` elements will stretch to fill the entire row and thus stack on top of each other, but the `col-sm-4` will create a multi-column layout on small screens and larger (`>=768px`). If you look in the Bootstrap stylesheet, you'll see that those `col-md-4` style classes are defined within a media rule block that has the condition `min-width(768px)`, so they are applied only when the screen size is at least `768px` wide. Here's what it looks like in the browser:
+Note that the `col-xs-4` classes became `col-sm-4`. By default, the `<div>` elements will stretch to fill the entire row and thus stack on top of each other, but the `col-sm-4` will create a multi-column layout on small screens and larger (`>=768px`). If you look in the [Bootstrap stylesheet](https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css), you'll see that those `col-sm-4` style classes are defined within a media rule block that has the condition `min-width(768px)`, so they are applied only when the screen size is at least `768px` wide. Here's what it looks like in the browser:
 
 <p data-height="200" data-theme-id="dark" data-slug-hash="qNQZZW" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/qNQZZW/">Bootstrap Grid 2</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -194,7 +199,7 @@ You can also combine these classes to create different layouts on different size
 
 With this markup, the first column consumes 4 grid units on small and medium screens, the second column consumes 8 grid units on small screens but only 4 on medium screens, and the third consumes 12 units on small screens but only 4 on medium screens. On a small screens, the first two columns sit side-by-side, but the third wraps to the next line and stretches across the entire row.
 
-<p data-height="200" data-theme-id="dark" data-slug-hash="mEabJR" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/mEabJR/">Bootstrap Grid 3</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="400" data-theme-id="dark" data-slug-hash="mEabJR" data-default-tab="result" data-user="drstearns" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/drstearns/pen/mEabJR/">Bootstrap Grid 3</a> by Dave Stearns (<a href="http://codepen.io/drstearns">@drstearns</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 See the [Bootstrap grid system documentation](http://getbootstrap.com/css/#grid) for more details.
