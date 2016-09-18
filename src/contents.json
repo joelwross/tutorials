@@ -2,6 +2,7 @@
 	"resources",
     "essential-html",
     "essential-css",
+    "essential-cli",
     "essential-git",
     "responsive-css",
     "css-frameworks"
